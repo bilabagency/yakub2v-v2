@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yakú | Hidratación Corporativa de Excelencia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FFFFFF;
+            --bg-alt: #F8FAFC;
+            --primary: #0A2540; /* Azul corporativo muy oscuro y tradicional */
+            --primary-light: #173A5E;
+            --accent: #0284C7; /* Azul agua para acentos */
+            --text-dark: #0F172A;
+            --text-muted: #475569;
+            --border-light: #E2E8F0;
+            --border-accent: #CBD5E1;
+            --shadow-premium: 0 10px 30px -5px rgba(10, 37, 64, 0.08);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Tipografía Premium */
+        .pre-title {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        h2.section-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        /* Animaciones Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botón Tradicional Premium (Bordes rectos/ligeros) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 40px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px; /* Más tradicional y serio */
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            border: 1px solid var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            box-shadow: var(--shadow-premium);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .section-padding { padding: 100px 5%; }
+        .text-center { text-align: center; }
+        .bg-alt { background-color: var(--bg-alt); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+        
+        /* Navbar Clean & Traditional */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 5%; 
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
+        nav.scrolled {
+            padding: 12px 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        nav img { 
+            height: 65px; 
+            object-fit: contain;
+            transition: var(--transition);
+        } 
+
+        /* 1. Portada con Canvas de Cristales/Agua Premium */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 5% 80px; 
+            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+            overflow: hidden;
+        }
+
+        #glassCanvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1300px;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1.1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero-image {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .hero-image img {
+            max-width: 100%;
+            filter: drop-shadow(0 30px 40px rgba(10, 37, 64, 0.1));
+        }
+
+        /* 2. Problemas (Estilo Consultoría) */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1px; /* Para efecto de bordes compartidos */
+            background: var(--border-light);
+            border: 1px solid var(--border-light);
+            margin-top: 50px;
+        }
+        .problem-card {
+            background: white;
+            padding: 50px 40px;
+            transition: var(--transition);
+        }
+        .problem-card:hover {
+            background: var(--bg-alt);
+        }
+        .problem-card h3 { color: var(--primary); margin-bottom: 15px; font-weight: 600; font-size: 1.2rem; }
+        .problem-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .problem-number {
+            font-size: 0.8rem; font-weight: 700; color: var(--accent);
+            margin-bottom: 20px; display: block; letter-spacing: 2px;
+        }
+
+        /* 3. Servicio 360 */
+        .service-flex { display: flex; align-items: center; gap: 60px; max-width: 1200px; margin: 0 auto; }
+        .service-text { flex: 1; }
+        .service-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.8; font-weight: 300; }
+        .service-list { list-style: none; border-top: 1px solid var(--border-light); padding-top: 20px; }
+        .service-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+        .service-list li strong { color: var(--primary); display: block; margin-bottom: 5px; }
+
+        /* 4. Slider de Empresas (Fondo Claro) */
+        .slider-section {
+            background: white;
+            padding: 80px 0;
+            overflow: hidden;
+            border-top: 1px solid var(--border-light);
+        }
+        .slider { width: 100%; position: relative; }
+        .slider::before, .slider::after {
+            content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2;
+        }
+        .slider::before { left: 0; background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%); }
+        .slider::after { right: 0; background: linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%); }
+        
+        .slide-track {
+            display: flex; align-items: center;
+            width: calc(250px * 68);
+            animation: scroll 80s linear infinite; 
+        }
+        .slide {
+            width: 250px; padding: 0 40px; display: flex; justify-content: center; align-items: center;
+        }
+        .slide img {
+            max-width: 100%; max-height: 70px; transition: var(--transition); object-fit: contain;
+        }
+        .logo-color { mix-blend-mode: multiply; filter: grayscale(100%) opacity(0.6); }
+        .logo-color:hover { filter: grayscale(0%) opacity(1); }
+        .logo-blanco { filter: brightness(0) opacity(0.6); mix-blend-mode: normal; }
+        .logo-blanco:hover { filter: brightness(0) opacity(1); }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 34)); } }
+
+        /* 5. Equipos (Diseño Minimalista Estricto) */
+        .equipos-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;
+        }
+        .equipo-card {
+            background: white; padding: 40px;
+            text-align: left; transition: var(--transition);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        .equipo-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 2px;
+            background: var(--accent); transition: var(--transition);
+        }
+        .equipo-card:hover::before { width: 100%; }
+        .equipo-card:hover { box-shadow: var(--shadow-premium); }
+        .equipo-card h3 { color: var(--primary); margin-bottom: 15px; font-weight: 600; font-size: 1.2rem; }
+        .equipo-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+
+        /* 6. Por qué elegirnos */
+        .features-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; max-width: 1000px; margin-inline: auto;
+        }
+        .feature-item {
+            display: flex; gap: 25px;
+        }
+        .feature-item h3 { color: var(--primary); margin-bottom: 10px; font-weight: 600; font-size: 1.1rem; }
+        .feature-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
+        .feature-line { width: 30px; height: 2px; background: var(--accent); margin-top: 10px; flex-shrink: 0; }
+
+        /* 7. FAQ (Líneas finas) */
+        .faq-container { max-width: 800px; margin: 50px auto 0; border-top: 1px solid var(--border-light); }
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+        }
+        .faq-question {
+            padding: 25px 0; cursor: pointer; color: var(--primary); font-weight: 500; font-size: 1.05rem;
+            display: flex; justify-content: space-between; align-items: center; transition: var(--transition);
+        }
+        .faq-question:hover { color: var(--accent); }
+        .faq-answer {
+            padding: 0 0 0 0; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;
+        }
+        .faq-item.active .faq-answer { padding: 0 0 25px 0; max-height: 300px; }
+
+        /* 8. Contacto */
+        .contact-section { background: var(--primary); color: white; }
+        .contact-section .section-title { color: white; }
+        .contact-section p { color: #CBD5E1; }
+        .contact-section .pre-title { color: #94A3B8; }
+        .form-container {
+            max-width: 800px; margin: 0 auto; background: white; padding: 60px; border-radius: 2px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        .form-row { display: flex; gap: 20px; margin-bottom: 25px; }
+        .form-group { flex: 1; }
+        label { display: block; margin-bottom: 10px; color: var(--text-muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        input, select {
+            width: 100%; padding: 15px; background: transparent; border: 1px solid var(--border-accent);
+            border-radius: 2px; color: var(--text-dark); font-size: 1rem; transition: var(--transition);
+        }
+        input:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary); }
+        .submit-btn { width: 100%; margin-top: 20px; }
+
+        /* Footer */
+        footer { background: #061524; padding: 40px 5%; text-align: center; color: #64748B; font-size: 0.85rem; letter-spacing: 0.5px; }
+        .cta-center { display: flex; justify-content: center; margin-top: 50px; }
+
+        @media (max-width: 992px) {
+            .hero-container { flex-direction: column; text-align: center; padding-top: 40px; }
+            .hero-text h1 { font-size: 2.5rem; }
+            .service-flex { flex-direction: column; }
+            .features-grid { grid-template-columns: 1fr; }
+            .form-row { flex-direction: column; gap: 15px; }
+            .form-container { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" alt="Yakú Logo">
+        <a href="#contacto" class="btn btn-outline">Contacto B2B</a>
+    </nav>
+
+    <section class="hero">
+        <canvas id="glassCanvas"></canvas>
+        
+        <div class="hero-container">
+            <div class="hero-text reveal">
+                <span class="pre-title">Hidratación Corporativa de Excelencia</span>
+                <h1>Optimice los recursos de su empresa. Sin bidones.</h1>
+                <p>Yakú redefine el estándar corporativo. Dispensadores de vanguardia conectados a la red con triple filtrado ANMAT. Libere metros cuadrados, optimice el tiempo de su personal y garantice pureza inagotable mediante un abono mensual fijo.</p>
+                <a href="#contacto" class="btn">Solicitar Auditoría</a>
+            </div>
+            <div class="hero-image reveal">
+                <img src="https://yakuagua.com.ar/wp-content/uploads/2025/05/banner-nuevos-productos-02-2048x1752.webp" alt="Equipos Yakú">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-alt">
+        <div class="text-center reveal">
+            <span class="pre-title">Análisis Operativo</span>
+            <h2 class="section-title">El costo oculto de la logística tradicional</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">La gestión de bidones genera ineficiencias sistemáticas que afectan la productividad diaria de su negocio.</p>
+        </div>
+        <div class="problems-grid">
+            <div class="problem-card reveal">
+                <span class="problem-number">01</span>
+                <h3>Pérdida de Tiempo</h3>
+                <p>Interrupciones constantes para recibir proveedores, recambiar botellones pesados y demoras del personal calentando agua de forma manual.</p>
+            </div>
+            <div class="problem-card reveal">
+                <span class="problem-number">02</span>
+                <h3>Espacio Inmovilizado</h3>
+                <p>Metros cuadrados de alto valor corporativo destinados ineficientemente al almacenamiento de stock de bidones llenos y vacíos.</p>
+            </div>
+            <div class="problem-card reveal">
+                <span class="problem-number">03</span>
+                <h3>Riesgo Sanitario</h3>
+                <p>La manipulación constante de cuellos de botellones y canillas tradicionales en zonas de alto tránsito favorece la proliferación bacteriana.</p>
+            </div>
+            <div class="problem-card reveal">
+                <span class="problem-number">04</span>
+                <h3>Inestabilidad de Costos</h3>
+                <p>Ausencia de previsibilidad financiera ante variaciones abruptas de consumo estacional y eventuales cortes de suministro logístico.</p>
+            </div>
+        </div>
+        <div class="cta-center reveal">
+            <a href="#contacto" class="btn btn-outline">Conocer la alternativa</a>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="service-flex">
+            <div class="service-text reveal">
+                <span class="pre-title">Solución Integral</span>
+                <h2 class="section-title">El Modelo Yakú 360</h2>
+                <p>Transformamos un problema logístico en un servicio automatizado. Su área de compras externaliza por completo la gestión del agua potable.</p>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <strong>Abono Flat Rate</strong>
+                            Inversión mensual estrictamente fija, independientemente de los picos de consumo de sus empleados.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Despliegue Técnico Express</strong>
+                            Instalación no invasiva (20 min) mediante conectores estéticos y canalización milimétrica oculta.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Mantenimiento Preventivo</strong>
+                            Sanitización y control de equipos programado cada 180 días por nuestro personal de planta.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Recambio Certificado</strong>
+                            Sustitución programada de filtros Fucari (aprobados por ANMAT) garantizando calidad ininterrumpida.
+                        </div>
+                    </li>
+                </ul>
+                <div style="margin-top: 40px;">
+                    <a href="#contacto" class="btn">Solicitar Propuesta Comercial</a>
+                </div>
+            </div>
+            <div class="service-image reveal" style="flex: 1; text-align: center;">
+                 <img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" alt="Yakú" style="max-width: 300px; opacity: 0.08; filter: grayscale(100%);">
+            </div>
+        </div>
+    </section>
+
+    <section class="slider-section reveal">
+        <div class="text-center">
+            <span class="pre-title">Confianza Corporativa</span>
+            <h2 class="section-title" style="font-size: 2rem; margin-bottom: 50px;">Instituciones que respaldan nuestro servicio</h2>
+        </div>
+        <div class="slider">
+            <div class="slide-track">
+                <div class="slide"><img src="https://static.wixstatic.com/media/813d9d_ec9f3ed8474646b287a4cc86b8070ae7~mv2.png/v1/fill/w_90,h_64,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Recurso%2013.png" class="logo-color"></div>
+                <div class="slide"><img src="https://epe.santafe.gov.ar/institucional/img/logoEPE2.svg" class="logo-color" alt="EPE"></div>
+                <div class="slide"><img src="https://unr.edu.ar/wp-content/uploads/2021/12/cropped-logo-contorno-uiversidad-blanco-fondo-transp-2.png" class="logo-blanco" alt="UNR"></div>
+                <div class="slide"><img src="https://fortressclub.com.ar/assets/images/logo.png" class="logo-color" alt="Fortress"></div>
+                <div class="slide"><img src="https://avalian.com/credencial/img/avalian_logo-color.png" class="logo-color" alt="Avalian"></div>
+                <div class="slide"><img src="https://portal.prd.smiles.com.ar/documents/d/guest/e2bd0600-9b24-11ed-aca2-37db769eb59f-Logo-banco-patagonia-positivo-8-fondo-azul" class="logo-color" alt="Banco Patagonia"></div>
+                <div class="slide"><img src="https://www.bancomeridian.com/img/logo.png" class="logo-color" alt="Banco Meridian"></div>
+                <div class="slide"><img src="https://www.cibic.com.ar/wp-content/uploads/2019/04/logonew.png" class="logo-color" alt="Cibic"></div>
+                <div class="slide"><img src="https://princemedicalsupplies.com/views/layout/prince/img/logo.png" class="logo-color" alt="Prince"></div>
+                <div class="slide"><img src="https://peargnc.com/img/logo.png" class="logo-color" alt="Pear GNC"></div>
+                <div class="slide"><img src="https://www.pami.org.ar/imagenes/logo_pami_azul.svg" class="logo-color" alt="PAMI"></div>
+                <div class="slide"><img src="https://i0.wp.com/tatarapido.ar/wp-content/uploads/2024/08/logo-tata-rapido-web-02-1.png?fit=438%2C100&ssl=1" class="logo-color" alt="Tata Rapido"></div>
+                <div class="slide"><img src="https://sitio.swift.com.ar/img/logo-menu.png" class="logo-color" alt="Swift"></div>
+                <div class="slide"><img src="https://paer.rafaela.gob.ar/wp-content/uploads/2025/05/logo-paer.svg" class="logo-color" alt="PAER"></div>
+                <div class="slide"><img src="https://fundanest.org.ar/wp-content/uploads/2022/11/logo_fundacion_anestesiologica_light.png" class="logo-blanco" alt="Fundanest"></div>
+                <div class="slide"><img src="https://etiketten.com.ar/web/img/logo.png" class="logo-color" alt="Etiketten"></div>
+                <div class="slide"><img src="https://www.grupoorono.com.ar/themes/grupo-oronio/assets/images/logo.svg" class="logo-color" alt="Grupo Oroño"></div>
+                <div class="slide"><img src="https://www.afip.gob.ar/frameworkAFIP/img/Arca-logo-grande-blanco.svg" class="logo-blanco" alt="ARCA"></div>
+                <div class="slide"><img src="https://www.bancocredicoop.coop/imagenes/banco-credicoop.jpg" class="logo-color" alt="Banco Credicoop"></div>
+                <div class="slide"><img src="https://diputadossantafe.gov.ar/web/img/logo_cdsf2-OK-sinluto.svg" class="logo-color" alt="Diputados SF"></div>
+                <div class="slide"><img src="https://grupomit.com.ar/wp-content/uploads/2025/12/mit_logo.svg" class="logo-color" alt="Grupo MIT"></div>
+                <div class="slide"><img src="https://www.somosfuturo.com.ar/images/logo-header.png" class="logo-color" alt="Somos Futuro"></div>
+                <div class="slide"><img src="https://maxiconsumo.com/media/logo/default/Black_Week_2025-02.png" class="logo-color" alt="Maxiconsumo"></div>
+                <div class="slide"><img src="https://www.medife.com.ar/themes/custom/medifetema/images/logo-nh.svg" class="logo-color" alt="Medife"></div>
+                <div class="slide"><img src="https://santafeciudad.gov.ar/wp-content/uploads/2020/06/SantaFeCapital_Logo_800x400-e1591880179119.png" class="logo-color" alt="Santa Fe Capital"></div>
+                <div class="slide"><img src="https://images.ctfassets.net/h7wmg0jhythh/1InOQGLVHFkXoipkET56ZR/a46d8ef1eb2093fd27169509a39c84f8/logo_Banco_Santa_Fe.svg" class="logo-color" alt="Banco Santa Fe"></div>
+                <div class="slide"><img src="https://www.oca.com.ar/Content/images/LogoOca.png" class="logo-color" alt="OCA"></div>
+                <div class="slide"><img src="https://www.senadosantafe.gob.ar/sites/all/themes/bootstrap_senado/less/logo.svg" class="logo-color" alt="Senado SF"></div>
+                <div class="slide"><img src="https://benuzzi.com/wp-content/uploads/2024/08/Capa-1.webp" class="logo-color" alt="Benuzzi"></div>
+                <div class="slide"><img src="https://www.bbva.com.ar/content/dam/library/logos/logo-bbva.svg" class="logo-color" alt="BBVA"></div>
+                <div class="slide"><img src="https://www.ucsf.edu.ar/wp-content/uploads/2020/12/logo-ucsf-v2.png" class="logo-color" alt="UCSF"></div>
+                <div class="slide"><img src="https://www.amiun.com.ar/nueva_web/images/logo.png" class="logo-color" alt="Amiun"></div>
+                <div class="slide"><img src="https://fedmart.com.ar/wp-content/uploads/2021/02/logo-fedmart-apaisado2.png" class="logo-color" alt="Fedmart"></div>
+                <div class="slide"><img src="https://www.conicet.gov.ar/wp-content/uploads/logo-CONICET_opt.png" class="logo-color" alt="Conicet"></div>
+                <div class="slide"><img src="https://www.utoradioterapia.com.ar/global/img/logo.png" class="logo-color" alt="UTO Radioterapia"></div>
+                <div class="slide"><img src="https://www.unl.edu.ar/wp-content/uploads/2018/05/unl_identidad.svg" class="logo-color" alt="UNL"></div>
+                <div class="slide"><img src="https://concejosantotome.gob.ar/wp-content/uploads/2024/08/Web-Logo-y-letras.png" class="logo-color" alt="Concejo Santo Tome"></div>
+                <div class="slide"><img src="https://sauceviejo.gob.ar/sauceonline/wp-content/uploads/2025/12/cropped-Logo-Municipalidad.jpg" class="logo-color" alt="Municipalidad Sauce Viejo"></div>
+
+                <div class="slide"><img src="https://static.wixstatic.com/media/813d9d_ec9f3ed8474646b287a4cc86b8070ae7~mv2.png/v1/fill/w_90,h_64,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Recurso%2013.png" class="logo-color"></div>
+                <div class="slide"><img src="https://epe.santafe.gov.ar/institucional/img/logoEPE2.svg" class="logo-color" alt="EPE"></div>
+                <div class="slide"><img src="https://unr.edu.ar/wp-content/uploads/2021/12/cropped-logo-contorno-uiversidad-blanco-fondo-transp-2.png" class="logo-blanco" alt="UNR"></div>
+                <div class="slide"><img src="https://fortressclub.com.ar/assets/images/logo.png" class="logo-color" alt="Fortress"></div>
+                <div class="slide"><img src="https://avalian.com/credencial/img/avalian_logo-color.png" class="logo-color" alt="Avalian"></div>
+                <div class="slide"><img src="https://portal.prd.smiles.com.ar/documents/d/guest/e2bd0600-9b24-11ed-aca2-37db769eb59f-Logo-banco-patagonia-positivo-8-fondo-azul" class="logo-color" alt="Banco Patagonia"></div>
+                <div class="slide"><img src="https://www.bancomeridian.com/img/logo.png" class="logo-color" alt="Banco Meridian"></div>
+                <div class="slide"><img src="https://www.cibic.com.ar/wp-content/uploads/2019/04/logonew.png" class="logo-color" alt="Cibic"></div>
+                <div class="slide"><img src="https://princemedicalsupplies.com/views/layout/prince/img/logo.png" class="logo-color" alt="Prince"></div>
+                <div class="slide"><img src="https://peargnc.com/img/logo.png" class="logo-color" alt="Pear GNC"></div>
+                <div class="slide"><img src="https://www.pami.org.ar/imagenes/logo_pami_azul.svg" class="logo-color" alt="PAMI"></div>
+                <div class="slide"><img src="https://i0.wp.com/tatarapido.ar/wp-content/uploads/2024/08/logo-tata-rapido-web-02-1.png?fit=438%2C100&ssl=1" class="logo-color" alt="Tata Rapido"></div>
+                <div class="slide"><img src="https://sitio.swift.com.ar/img/logo-menu.png" class="logo-color" alt="Swift"></div>
+                <div class="slide"><img src="https://paer.rafaela.gob.ar/wp-content/uploads/2025/05/logo-paer.svg" class="logo-color" alt="PAER"></div>
+                <div class="slide"><img src="https://fundanest.org.ar/wp-content/uploads/2022/11/logo_fundacion_anestesiologica_light.png" class="logo-blanco" alt="Fundanest"></div>
+                <div class="slide"><img src="https://etiketten.com.ar/web/img/logo.png" class="logo-color" alt="Etiketten"></div>
+                <div class="slide"><img src="https://www.grupoorono.com.ar/themes/grupo-oronio/assets/images/logo.svg" class="logo-color" alt="Grupo Oroño"></div>
+                <div class="slide"><img src="https://www.afip.gob.ar/frameworkAFIP/img/Arca-logo-grande-blanco.svg" class="logo-blanco" alt="ARCA"></div>
+                <div class="slide"><img src="https://www.bancocredicoop.coop/imagenes/banco-credicoop.jpg" class="logo-color" alt="Banco Credicoop"></div>
+                <div class="slide"><img src="https://diputadossantafe.gov.ar/web/img/logo_cdsf2-OK-sinluto.svg" class="logo-color" alt="Diputados SF"></div>
+                <div class="slide"><img src="https://grupomit.com.ar/wp-content/uploads/2025/12/mit_logo.svg" class="logo-color" alt="Grupo MIT"></div>
+                <div class="slide"><img src="https://www.somosfuturo.com.ar/images/logo-header.png" class="logo-color" alt="Somos Futuro"></div>
+                <div class="slide"><img src="https://maxiconsumo.com/media/logo/default/Black_Week_2025-02.png" class="logo-color" alt="Maxiconsumo"></div>
+                <div class="slide"><img src="https://www.medife.com.ar/themes/custom/medifetema/images/logo-nh.svg" class="logo-color" alt="Medife"></div>
+                <div class="slide"><img src="https://santafeciudad.gov.ar/wp-content/uploads/2020/06/SantaFeCapital_Logo_800x400-e1591880179119.png" class="logo-color" alt="Santa Fe Capital"></div>
+                <div class="slide"><img src="https://images.ctfassets.net/h7wmg0jhythh/1InOQGLVHFkXoipkET56ZR/a46d8ef1eb2093fd27169509a39c84f8/logo_Banco_Santa_Fe.svg" class="logo-color" alt="Banco Santa Fe"></div>
+                <div class="slide"><img src="https://www.oca.com.ar/Content/images/LogoOca.png" class="logo-color" alt="OCA"></div>
+                <div class="slide"><img src="https://www.senadosantafe.gob.ar/sites/all/themes/bootstrap_senado/less/logo.svg" class="logo-color" alt="Senado SF"></div>
+                <div class="slide"><img src="https://benuzzi.com/wp-content/uploads/2024/08/Capa-1.webp" class="logo-color" alt="Benuzzi"></div>
+                <div class="slide"><img src="https://www.bbva.com.ar/content/dam/library/logos/logo-bbva.svg" class="logo-color" alt="BBVA"></div>
+                <div class="slide"><img src="https://www.ucsf.edu.ar/wp-content/uploads/2020/12/logo-ucsf-v2.png" class="logo-color" alt="UCSF"></div>
+                <div class="slide"><img src="https://www.amiun.com.ar/nueva_web/images/logo.png" class="logo-color" alt="Amiun"></div>
+                <div class="slide"><img src="https://fedmart.com.ar/wp-content/uploads/2021/02/logo-fedmart-apaisado2.png" class="logo-color" alt="Fedmart"></div>
+                <div class="slide"><img src="https://www.conicet.gov.ar/wp-content/uploads/logo-CONICET_opt.png" class="logo-color" alt="Conicet"></div>
+                <div class="slide"><img src="https://www.utoradioterapia.com.ar/global/img/logo.png" class="logo-color" alt="UTO Radioterapia"></div>
+                <div class="slide"><img src="https://www.unl.edu.ar/wp-content/uploads/2018/05/unl_identidad.svg" class="logo-color" alt="UNL"></div>
+                <div class="slide"><img src="https://concejosantotome.gob.ar/wp-content/uploads/2024/08/Web-Logo-y-letras.png" class="logo-color" alt="Concejo Santo Tome"></div>
+                <div class="slide"><img src="https://sauceviejo.gob.ar/sauceonline/wp-content/uploads/2025/12/cropped-Logo-Municipalidad.jpg" class="logo-color" alt="Municipalidad Sauce Viejo"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-alt">
+        <div class="text-center reveal">
+            <span class="pre-title">Infraestructura Tecnológica</span>
+            <h2 class="section-title">Equipamiento B2B Adaptable</h2>
+            <p style="color: var(--text-muted);">Configuraciones específicas para gerencias, áreas comunes y plantas industriales.</p>
+        </div>
+        <div class="equipos-grid">
+            <div class="equipo-card reveal">
+                <h3>Línea Ejecutiva 11B / 103</h3>
+                <p>Nivel superior de estética para oficinas corporativas. Diseño hermético, pulsadores ocultos y entrega continua de agua purificada a temperatura ideal.</p>
+            </div>
+            <div class="equipo-card reveal">
+                <h3>Office con Conservadora</h3>
+                <p>Módulo que incorpora compartimento inferior de refrigeración. Optimiza los espacios de reuniones sin requerir equipamiento blanco adicional.</p>
+            </div>
+            <div class="equipo-card reveal">
+                <h3>ICE Industrial (Heavy Duty)</h3>
+                <p>Estructura robusta para alta exigencia operativa. Capacidad de suministro de 11 litros continuos sin pérdida de rendimiento térmico.</p>
+            </div>
+            <div class="equipo-card reveal">
+                <h3>Unidad de Ósmosis Inversa</h3>
+                <p>Sistema de microfiltración molecular. Tratamiento definitivo para aguas de alta dureza, sarro y metales pesados en zonas geográficas complejas.</p>
+            </div>
+        </div>
+        <div class="cta-center reveal">
+            <a href="#contacto" class="btn btn-outline">Solicitar Catálogo Técnico</a>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="text-center reveal">
+            <span class="pre-title">Diferencial Competitivo</span>
+            <h2 class="section-title">El Estándar de Calidad Yakú</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item reveal">
+                <div class="feature-line"></div>
+                <div>
+                    <h3>Certificación ANMAT (Fucari)</h3>
+                    <p>Integración de tecnología de filtrado avalada bajo normativas sanitarias estrictas, cumpliendo requerimientos de auditorías y licitaciones.</p>
+                </div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-line"></div>
+                <div>
+                    <h3>Cumplimiento ESG</h3>
+                    <p>Supresión absoluta de plásticos de un solo uso y huella de carbono logística. Hardware operado mediante refrigerantes de bajo impacto ambiental.</p>
+                </div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-line"></div>
+                <div>
+                    <h3>Protocolo de Bioseguridad</h3>
+                    <p>Arquitectura de hardware diseñada sin canillas expuestas. Pulsadores resguardados para anular la contaminación cruzada en el entorno laboral.</p>
+                </div>
+            </div>
+            <div class="feature-item reveal">
+                <div class="feature-line"></div>
+                <div>
+                    <h3>Soporte Técnico In-House</h3>
+                    <p>Personal operario en relación de dependencia, debidamente identificado, garantizando seguridad en los controles de acceso a su institución.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-alt">
+        <div class="text-center reveal">
+            <span class="pre-title">Resolución de Dudas</span>
+            <h2 class="section-title">Preguntas Frecuentes</h3>
+        </div>
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <div class="faq-question">¿La instalación requiere intervenciones de obra civil? <span>+</span></div>
+                <div class="faq-answer">
+                    En absoluto. El procedimiento consta de una adaptación de llave tipo "T" en la toma de agua existente más cercana. La conducción se realiza mediante un ducto milimétrico de 6mm, fácilmente disimulable tras zócalos o mobiliario.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿El sistema es viable en áreas con agua de alta dureza o pozo? <span>+</span></div>
+                <div class="faq-answer">
+                    Sí. Contamos con módulos de Ósmosis Inversa específicos para estas condiciones geográficas, purificando a nivel molecular para remover sodio, arsénico y sarro de forma eficiente.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Existen costos variables asociados al mantenimiento preventivo? <span>+</span></div>
+                <div class="faq-answer">
+                    No. El abono mensual es un modelo "All-Inclusive". Cubre la totalidad de visitas técnicas, sanitizaciones semestrales, sustitución de repuestos y reposición de la unidad en caso de falla crítica.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section-padding contact-section">
+        <div class="text-center reveal">
+            <span class="pre-title">Contacto Comercial</span>
+            <h2 class="section-title">Inicie la actualización de su empresa</h2>
+            <p style="margin-bottom: 50px;">Complete sus datos corporativos y un asesor ejecutivo coordinará una evaluación de factibilidad.</p>
+        </div>
+        <div class="form-container reveal">
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email Corporativo *</label>
+                        <input type="email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Empresa *</label>
+                        <input type="text" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Cargo Organizacional *</label>
+                        <input type="text" required>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <label>Principal desafío operativo a resolver *</label>
+                    <select required>
+                        <option value="" disabled selected>Seleccione la opción correspondiente...</option>
+                        <option value="1">Necesidad de agua purificada certificada para el personal</option>
+                        <option value="2">Optimización de tiempos muertos (preparación de infusiones)</option>
+                        <option value="3">Abastecimiento continuo de agua térmica (frío/calor)</option>
+                        <option value="4">Reemplazo de proveedor logístico de bidones actual</option>
+                        <option value="5">Otro</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Solicitar Evaluación Técnica</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yakú. Servicios Corporativos de Purificación de Agua.</p>
+    </footer>
+
+    <script>
+        // 1. Animación de Esferas de Cristal (Canvas Premium)
+        const canvas = document.getElementById('glassCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let orbs = [];
+
+        function resize() {
+            width = canvas.width = canvas.offsetWidth;
+            height = canvas.height = canvas.offsetHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Orb {
+            constructor() {
+                this.reset();
+                this.y = Math.random() * height; // Iniciar dispersos
+            }
+            reset() {
+                this.x = Math.random() * width;
+                this.y = height + Math.random() * 100;
+                this.radius = Math.random() * 80 + 20; // Esferas grandes y medianas
+                this.speed = Math.random() * 0.4 + 0.1; // Movimiento extremadamente lento
+                this.opacity = Math.random() * 0.03 + 0.01; // Casi invisibles, muy sutil
+            }
+            update() {
+                this.y -= this.speed;
+                if (this.y + this.radius < 0) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                // Borde de cristal suave
+                ctx.strokeStyle = `rgba(2, 132, 199, ${this.opacity * 2})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                // Relleno iluminado
+                let gradient = ctx.createRadialGradient(this.x - this.radius/3, this.y - this.radius/3, 0, this.x, this.y, this.radius);
+                gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 3})`);
+                gradient.addColorStop(1, `rgba(2, 132, 199, ${this.opacity})`);
+                ctx.fillStyle = gradient;
+                ctx.fill();
+            }
+        }
+
+        function initOrbs() {
+            orbs = [];
+            // Menos elementos para mayor elegancia
+            let orbCount = Math.floor(width / 80);
+            for (let i = 0; i < orbCount; i++) {
+                orbs.push(new Orb());
+            }
+        }
+        initOrbs();
+
+        function animateOrbs() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Haces de luz diagonales estáticos en el fondo
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(width * 0.5, height);
+            ctx.lineTo(width * 0.8, height);
+            ctx.lineTo(width * 0.2, 0);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+            ctx.fill();
+
+            orbs.forEach(orb => {
+                orb.update();
+                orb.draw();
+            });
+            requestAnimationFrame(animateOrbs);
+        }
+        animateOrbs();
+
+        // Navbar Efecto Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if(window.scrollY > 50) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+
+        // Efectos Reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+        reveals.forEach(element => revealObserver.observe(element));
+
+        // FAQ Acordeón
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('span').textContent = '+';
+                });
+                if(!isActive) {
+                    item.classList.add('active');
+                    item.querySelector('span').textContent = '-';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
