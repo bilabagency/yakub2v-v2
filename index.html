@@ -9,9 +9,9 @@
         :root {
             --bg-main: #FFFFFF;
             --bg-alt: #F8FAFC;
-            --primary: #0A2540; /* Azul corporativo muy oscuro y tradicional */
+            --primary: #0A2540;
             --primary-light: #173A5E;
-            --accent: #0284C7; /* Azul agua para acentos */
+            --accent: #0284C7;
             --text-dark: #0F172A;
             --text-muted: #475569;
             --border-light: #E2E8F0;
@@ -64,7 +64,7 @@
             transform: translateY(0);
         }
 
-        /* Botón Tradicional Premium (Bordes rectos/ligeros) */
+        /* Botón Tradicional Premium */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -73,7 +73,7 @@
             background-color: var(--primary);
             color: white;
             text-decoration: none;
-            border-radius: 2px; /* Más tradicional y serio */
+            border-radius: 2px;
             font-weight: 500;
             letter-spacing: 1px;
             font-size: 0.9rem;
@@ -101,7 +101,7 @@
         .text-center { text-align: center; }
         .bg-alt { background-color: var(--bg-alt); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
         
-        /* Navbar Clean & Traditional */
+        /* Navbar */
         nav {
             position: fixed;
             top: 0; width: 100%;
@@ -115,17 +115,10 @@
             border-bottom: 1px solid var(--border-light);
             transition: var(--transition);
         }
-        nav.scrolled {
-            padding: 12px 5%;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
-        nav img { 
-            height: 65px; 
-            object-fit: contain;
-            transition: var(--transition);
-        } 
+        nav.scrolled { padding: 12px 5%; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        nav img { height: 65px; object-fit: contain; transition: var(--transition); } 
 
-        /* 1. Portada con Canvas de Cristales/Agua Premium */
+        /* 1. Portada */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -136,202 +129,178 @@
             background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
             overflow: hidden;
         }
-
         #glassCanvas {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
         }
-
         .hero-container {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: 1300px;
-            gap: 50px;
+            position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1300px; gap: 50px;
         }
+        .hero-text { flex: 1.1; max-width: 600px; }
+        .hero-text h1 { font-size: 3.2rem; font-weight: 700; line-height: 1.15; margin-bottom: 25px; color: var(--primary); }
+        .hero-text p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 40px; font-weight: 300; }
+        .hero-image { flex: 0.9; display: flex; justify-content: center; position: relative; }
+        .hero-image img { max-width: 100%; filter: drop-shadow(0 30px 40px rgba(10, 37, 64, 0.1)); }
 
-        .hero-text {
-            flex: 1.1;
-            max-width: 600px;
-        }
-
-        .hero-text h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 25px;
-            color: var(--primary);
-        }
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .hero-image {
-            flex: 0.9;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-        .hero-image img {
-            max-width: 100%;
-            filter: drop-shadow(0 30px 40px rgba(10, 37, 64, 0.1));
-        }
-
-        /* 2. Problemas (Estilo Consultoría) */
+        /* 2. Problemas */
         .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1px; /* Para efecto de bordes compartidos */
-            background: var(--border-light);
-            border: 1px solid var(--border-light);
-            margin-top: 50px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1px; background: var(--border-light); border: 1px solid var(--border-light); margin-top: 50px;
         }
-        .problem-card {
-            background: white;
-            padding: 50px 40px;
-            transition: var(--transition);
-        }
-        .problem-card:hover {
-            background: var(--bg-alt);
-        }
+        .problem-card { background: white; padding: 50px 40px; transition: var(--transition); }
+        .problem-card:hover { background: var(--bg-alt); }
         .problem-card h3 { color: var(--primary); margin-bottom: 15px; font-weight: 600; font-size: 1.2rem; }
         .problem-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
-        .problem-number {
-            font-size: 0.8rem; font-weight: 700; color: var(--accent);
-            margin-bottom: 20px; display: block; letter-spacing: 2px;
-        }
+        .problem-number { font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-bottom: 20px; display: block; letter-spacing: 2px; }
 
         /* 3. Servicio 360 */
         .service-flex { display: flex; align-items: center; gap: 60px; max-width: 1200px; margin: 0 auto; }
         .service-text { flex: 1; }
         .service-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px; line-height: 1.8; font-weight: 300; }
         .service-list { list-style: none; border-top: 1px solid var(--border-light); padding-top: 20px; }
-        .service-list li {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-            color: var(--text-dark);
-            font-size: 1rem;
-        }
+        .service-list li { margin-bottom: 20px; display: flex; align-items: flex-start; gap: 20px; color: var(--text-dark); font-size: 1rem; }
         .service-list li strong { color: var(--primary); display: block; margin-bottom: 5px; }
 
-        /* 4. Slider de Empresas (Fondo Claro) */
-        .slider-section {
-            background: white;
-            padding: 80px 0;
-            overflow: hidden;
-            border-top: 1px solid var(--border-light);
-        }
+        /* 4. Slider de Empresas */
+        .slider-section { background: white; padding: 80px 0; overflow: hidden; border-top: 1px solid var(--border-light); }
         .slider { width: 100%; position: relative; }
-        .slider::before, .slider::after {
-            content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2;
-        }
+        .slider::before, .slider::after { content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; }
         .slider::before { left: 0; background: linear-gradient(to right, white 0%, rgba(255,255,255,0) 100%); }
         .slider::after { right: 0; background: linear-gradient(to left, white 0%, rgba(255,255,255,0) 100%); }
-        
-        .slide-track {
-            display: flex; align-items: center;
-            width: calc(250px * 68);
-            animation: scroll 80s linear infinite; 
-        }
-        .slide {
-            width: 250px; padding: 0 40px; display: flex; justify-content: center; align-items: center;
-        }
-        .slide img {
-            max-width: 100%; max-height: 70px; transition: var(--transition); object-fit: contain;
-        }
-        .logo-color { mix-blend-mode: multiply; filter: grayscale(100%) opacity(0.6); }
+        .slide-track { display: flex; align-items: center; width: calc(280px * 70); animation: scroll 100s linear infinite; }
+        .slide { width: 280px; padding: 0 30px; display: flex; justify-content: center; align-items: center; }
+        .slide img { width: 100%; max-height: 90px; transition: var(--transition); object-fit: contain; }
+        .logo-color { filter: grayscale(100%) opacity(0.65); mix-blend-mode: normal; }
         .logo-color:hover { filter: grayscale(0%) opacity(1); }
-        .logo-blanco { filter: brightness(0) opacity(0.6); mix-blend-mode: normal; }
+        .logo-blanco { filter: brightness(0) opacity(0.65); mix-blend-mode: normal; }
         .logo-blanco:hover { filter: brightness(0) opacity(1); }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 34)); } }
+        .logo-jpg { filter: grayscale(100%) opacity(0.65); mix-blend-mode: multiply; }
+        .logo-jpg:hover { filter: grayscale(0%) opacity(1); mix-blend-mode: multiply; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-280px * 35)); } }
 
-        /* 5. Equipos (Diseño Minimalista Estricto) */
-        .equipos-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px;
-        }
-        .equipo-card {
-            background: white; padding: 40px;
-            text-align: left; transition: var(--transition);
-            border: 1px solid var(--border-light);
-            position: relative;
-        }
-        .equipo-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 0; height: 2px;
-            background: var(--accent); transition: var(--transition);
-        }
+        /* 5. Equipos */
+        .equipos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .equipo-card { background: white; padding: 40px; text-align: left; transition: var(--transition); border: 1px solid var(--border-light); position: relative; }
+        .equipo-card::before { content: ''; position: absolute; top: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: var(--transition); }
         .equipo-card:hover::before { width: 100%; }
         .equipo-card:hover { box-shadow: var(--shadow-premium); }
         .equipo-card h3 { color: var(--primary); margin-bottom: 15px; font-weight: 600; font-size: 1.2rem; }
         .equipo-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
 
         /* 6. Por qué elegirnos */
-        .features-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; max-width: 1000px; margin-inline: auto;
-        }
-        .feature-item {
-            display: flex; gap: 25px;
-        }
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; max-width: 1000px; margin-inline: auto; }
+        .feature-item { display: flex; gap: 25px; }
         .feature-item h3 { color: var(--primary); margin-bottom: 10px; font-weight: 600; font-size: 1.1rem; }
         .feature-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
         .feature-line { width: 30px; height: 2px; background: var(--accent); margin-top: 10px; flex-shrink: 0; }
 
-        /* 7. FAQ (Líneas finas) */
+        /* 7. FAQ */
         .faq-container { max-width: 800px; margin: 50px auto 0; border-top: 1px solid var(--border-light); }
-        .faq-item {
-            border-bottom: 1px solid var(--border-light);
-        }
-        .faq-question {
-            padding: 25px 0; cursor: pointer; color: var(--primary); font-weight: 500; font-size: 1.05rem;
-            display: flex; justify-content: space-between; align-items: center; transition: var(--transition);
-        }
+        .faq-item { border-bottom: 1px solid var(--border-light); }
+        .faq-question { padding: 25px 0; cursor: pointer; color: var(--primary); font-weight: 500; font-size: 1.05rem; display: flex; justify-content: space-between; align-items: center; transition: var(--transition); }
         .faq-question:hover { color: var(--accent); }
-        .faq-answer {
-            padding: 0 0 0 0; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease;
-            color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;
-        }
+        .faq-answer { padding: 0; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: var(--text-muted); line-height: 1.8; font-size: 0.95rem; }
         .faq-item.active .faq-answer { padding: 0 0 25px 0; max-height: 300px; }
 
-        /* 8. Contacto */
-        .contact-section { background: var(--primary); color: white; }
-        .contact-section .section-title { color: white; }
-        .contact-section p { color: #CBD5E1; }
-        .contact-section .pre-title { color: #94A3B8; }
-        .form-container {
-            max-width: 800px; margin: 0 auto; background: white; padding: 60px; border-radius: 2px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        /* =========================================
+           8. CONTACTO (NUEVO DISEÑO IMPACTANTE)
+           ========================================= */
+        .contact-section { 
+            background: linear-gradient(135deg, #0A2540 0%, #040D17 100%); /* Fondo corporativo profundo */
+            position: relative;
+            padding: 120px 5%;
         }
+        
+        /* Layout de Doble Columna */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .contact-info .pre-title { color: var(--accent); }
+        .contact-info .section-title { color: #FFFFFF; font-size: 3rem; line-height: 1.1; margin-bottom: 30px; }
+        .contact-info p { color: #94A3B8; font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; }
+        
+        .trust-badges { margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; }
+        .trust-badges p { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; color: #CBD5E1; }
+
+        /* Tarjeta del Formulario */
+        .form-container {
+            background: #FFFFFF;
+            padding: 50px 40px;
+            border-radius: 8px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        
         .form-row { display: flex; gap: 20px; margin-bottom: 25px; }
         .form-group { flex: 1; }
-        label { display: block; margin-bottom: 10px; color: var(--text-muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        input, select {
-            width: 100%; padding: 15px; background: transparent; border: 1px solid var(--border-accent);
-            border-radius: 2px; color: var(--text-dark); font-size: 1rem; transition: var(--transition);
+        
+        label { 
+            display: block; margin-bottom: 8px; color: var(--primary); 
+            font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; 
         }
-        input:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary); }
-        .submit-btn { width: 100%; margin-top: 20px; }
+        
+        input, select {
+            width: 100%; padding: 14px 15px; background: #F8FAFC; 
+            border: 1px solid var(--border-light); border-radius: 4px; 
+            color: var(--text-dark); font-size: 1rem; transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        input:focus, select:focus { 
+            outline: none; border-color: var(--accent); 
+            background: #FFFFFF; box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.1); 
+        }
+        
+        /* Estilo para el datalist icon */
+        input[list]::-webkit-calendar-picker-indicator { display: none !important; }
+        .input-with-icon { position: relative; }
+        .input-with-icon::after {
+            content: '▼'; position: absolute; right: 15px; top: 50%; 
+            transform: translateY(-50%); font-size: 0.8rem; color: var(--text-muted); pointer-events: none;
+        }
+
+        /* UI CAPTCHA Simulado */
+        .captcha-box {
+            display: flex; align-items: center; justify-content: space-between;
+            background: #F9F9F9; border: 1px solid #D3D3D3; border-radius: 3px;
+            padding: 10px 15px; margin-bottom: 25px; box-shadow: 0px 0px 4px rgba(0,0,0,0.05);
+        }
+        .captcha-left { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        
+        .captcha-checkbox {
+            width: 28px; height: 28px; border: 2px solid #C1C1C1; border-radius: 2px;
+            background: white; position: relative; transition: all 0.3s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .captcha-checkbox.loading { border-color: transparent; border-top-color: var(--accent); animation: spin 1s linear infinite; border-radius: 50%; }
+        .captcha-checkbox.checked { border-color: transparent; }
+        .captcha-checkbox.checked::after {
+            content: '✔'; color: #009E5E; font-size: 24px; font-weight: bold; position: absolute;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .captcha-text { font-family: 'Roboto', sans-serif; font-size: 0.9rem; color: #555; }
+        .captcha-logo { display: flex; flex-direction: column; align-items: center; }
+        .captcha-logo img { width: 30px; margin-bottom: 2px; }
+        .captcha-logo span { font-size: 0.5rem; color: #999; }
+
+        .submit-btn { width: 100%; padding: 20px; font-size: 1.05rem; }
 
         /* Footer */
-        footer { background: #061524; padding: 40px 5%; text-align: center; color: #64748B; font-size: 0.85rem; letter-spacing: 0.5px; }
-        .cta-center { display: flex; justify-content: center; margin-top: 50px; }
+        footer { background: #040D17; padding: 40px 5%; text-align: center; color: #64748B; font-size: 0.85rem; letter-spacing: 0.5px; }
 
         @media (max-width: 992px) {
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
             .hero-container { flex-direction: column; text-align: center; padding-top: 40px; }
             .hero-text h1 { font-size: 2.5rem; }
             .service-flex { flex-direction: column; }
             .features-grid { grid-template-columns: 1fr; }
             .form-row { flex-direction: column; gap: 15px; }
-            .form-container { padding: 30px; }
+            .form-container { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -339,18 +308,17 @@
 
     <nav id="navbar">
         <img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" alt="Yakú Logo">
-        <a href="#contacto" class="btn btn-outline">Contacto B2B</a>
+        <a href="#contacto" class="btn btn-outline">Cotizar servicio</a>
     </nav>
 
     <section class="hero">
         <canvas id="glassCanvas"></canvas>
-        
         <div class="hero-container">
             <div class="hero-text reveal">
-                <span class="pre-title">Hidratación Corporativa de Excelencia</span>
-                <h1>Optimice los recursos de su empresa. Sin bidones.</h1>
-                <p>Yakú redefine el estándar corporativo. Dispensadores de vanguardia conectados a la red con triple filtrado ANMAT. Libere metros cuadrados, optimice el tiempo de su personal y garantice pureza inagotable mediante un abono mensual fijo.</p>
-                <a href="#contacto" class="btn">Solicitar Auditoría</a>
+                <span class="pre-title">SERVICIO INTEGRAL PARA EMPRESAS</span>
+                <h1>Agua de red purificada. Cero gestión de bidones.</h1>
+                <p>Yakú transforma un problema logístico en un servicio automatizado. Disfrute de equipos de vanguardia con filtros ANMAT y olvídese del stock, las demoras del proveedor y las variaciones de precio. Todo incluido en una tarifa plana mensual: instalación express, mantenimiento y recambios.</p>
+                <a href="#contacto" class="btn">Solicitar cotización</a>
             </div>
             <div class="hero-image reveal">
                 <img src="https://yakuagua.com.ar/wp-content/uploads/2025/05/banner-nuevos-productos-02-2048x1752.webp" alt="Equipos Yakú">
@@ -396,7 +364,7 @@
             <div class="service-text reveal">
                 <span class="pre-title">Solución Integral</span>
                 <h2 class="section-title">El Modelo Yakú 360</h2>
-                <p>Transformamos un problema logístico en un servicio automatizado. Su área de compras externaliza por completo la gestión del agua potable.</p>
+                <p>Transformamos un problema logístico en un servicio automatizado. Su área de compras externaliza por completo la gestión del agua.</p>
                 <ul class="service-list">
                     <li>
                         <div>
@@ -407,7 +375,7 @@
                     <li>
                         <div>
                             <strong>Despliegue Técnico Express</strong>
-                            Instalación no invasiva (20 min) mediante conectores estéticos y canalización milimétrica oculta.
+                            Instalación no invasiva (15 a 20 min) mediante conectores estéticos y canalización milimétrica oculta.
                         </div>
                     </li>
                     <li>
@@ -440,28 +408,28 @@
         </div>
         <div class="slider">
             <div class="slide-track">
-                <div class="slide"><img src="https://static.wixstatic.com/media/813d9d_ec9f3ed8474646b287a4cc86b8070ae7~mv2.png/v1/fill/w_90,h_64,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Recurso%2013.png" class="logo-color"></div>
-                <div class="slide"><img src="https://epe.santafe.gov.ar/institucional/img/logoEPE2.svg" class="logo-color" alt="EPE"></div>
+                <div class="slide"><img src="https://static.wixstatic.com/media/813d9d_ec9f3ed8474646b287a4cc86b8070ae7~mv2.png/v1/fill/w_90,h_64,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Recurso%2013.png" class="logo-color" alt="Friar"></div>
+                <div class="slide"><img src="https://epe.santafe.gov.ar/institucional/img/logoEPE2.svg" class="logo-blanco" alt="EPE"></div>
                 <div class="slide"><img src="https://unr.edu.ar/wp-content/uploads/2021/12/cropped-logo-contorno-uiversidad-blanco-fondo-transp-2.png" class="logo-blanco" alt="UNR"></div>
-                <div class="slide"><img src="https://fortressclub.com.ar/assets/images/logo.png" class="logo-color" alt="Fortress"></div>
+                <div class="slide"><img src="https://fortressclub.com.ar/assets/images/logo.png" class="logo-blanco" alt="Fortress"></div>
                 <div class="slide"><img src="https://avalian.com/credencial/img/avalian_logo-color.png" class="logo-color" alt="Avalian"></div>
                 <div class="slide"><img src="https://portal.prd.smiles.com.ar/documents/d/guest/e2bd0600-9b24-11ed-aca2-37db769eb59f-Logo-banco-patagonia-positivo-8-fondo-azul" class="logo-color" alt="Banco Patagonia"></div>
                 <div class="slide"><img src="https://www.bancomeridian.com/img/logo.png" class="logo-color" alt="Banco Meridian"></div>
                 <div class="slide"><img src="https://www.cibic.com.ar/wp-content/uploads/2019/04/logonew.png" class="logo-color" alt="Cibic"></div>
-                <div class="slide"><img src="https://princemedicalsupplies.com/views/layout/prince/img/logo.png" class="logo-color" alt="Prince"></div>
+                <div class="slide"><img src="https://princemedicalsupplies.com/views/layout/prince/img/logo.png" class="logo-blanco" alt="Prince Medical Supplies"></div>
                 <div class="slide"><img src="https://peargnc.com/img/logo.png" class="logo-color" alt="Pear GNC"></div>
                 <div class="slide"><img src="https://www.pami.org.ar/imagenes/logo_pami_azul.svg" class="logo-color" alt="PAMI"></div>
                 <div class="slide"><img src="https://i0.wp.com/tatarapido.ar/wp-content/uploads/2024/08/logo-tata-rapido-web-02-1.png?fit=438%2C100&ssl=1" class="logo-color" alt="Tata Rapido"></div>
-                <div class="slide"><img src="https://sitio.swift.com.ar/img/logo-menu.png" class="logo-color" alt="Swift"></div>
+                <div class="slide"><img src="https://sitio.swift.com.ar/img/logo-menu.png" class="logo-blanco" alt="Swift"></div>
                 <div class="slide"><img src="https://paer.rafaela.gob.ar/wp-content/uploads/2025/05/logo-paer.svg" class="logo-color" alt="PAER"></div>
                 <div class="slide"><img src="https://fundanest.org.ar/wp-content/uploads/2022/11/logo_fundacion_anestesiologica_light.png" class="logo-blanco" alt="Fundanest"></div>
                 <div class="slide"><img src="https://etiketten.com.ar/web/img/logo.png" class="logo-color" alt="Etiketten"></div>
                 <div class="slide"><img src="https://www.grupoorono.com.ar/themes/grupo-oronio/assets/images/logo.svg" class="logo-color" alt="Grupo Oroño"></div>
                 <div class="slide"><img src="https://www.afip.gob.ar/frameworkAFIP/img/Arca-logo-grande-blanco.svg" class="logo-blanco" alt="ARCA"></div>
-                <div class="slide"><img src="https://www.bancocredicoop.coop/imagenes/banco-credicoop.jpg" class="logo-color" alt="Banco Credicoop"></div>
+                <div class="slide"><img src="https://www.bancocredicoop.coop/imagenes/banco-credicoop.jpg" class="logo-jpg" alt="Banco Credicoop"></div>
                 <div class="slide"><img src="https://diputadossantafe.gov.ar/web/img/logo_cdsf2-OK-sinluto.svg" class="logo-color" alt="Diputados SF"></div>
                 <div class="slide"><img src="https://grupomit.com.ar/wp-content/uploads/2025/12/mit_logo.svg" class="logo-color" alt="Grupo MIT"></div>
-                <div class="slide"><img src="https://www.somosfuturo.com.ar/images/logo-header.png" class="logo-color" alt="Somos Futuro"></div>
+                <div class="slide"><img src="https://www.somosfuturo.com.ar/images/logo-header.png" class="logo-blanco" alt="Somos Futuro"></div>
                 <div class="slide"><img src="https://maxiconsumo.com/media/logo/default/Black_Week_2025-02.png" class="logo-color" alt="Maxiconsumo"></div>
                 <div class="slide"><img src="https://www.medife.com.ar/themes/custom/medifetema/images/logo-nh.svg" class="logo-color" alt="Medife"></div>
                 <div class="slide"><img src="https://santafeciudad.gov.ar/wp-content/uploads/2020/06/SantaFeCapital_Logo_800x400-e1591880179119.png" class="logo-color" alt="Santa Fe Capital"></div>
@@ -470,37 +438,37 @@
                 <div class="slide"><img src="https://www.senadosantafe.gob.ar/sites/all/themes/bootstrap_senado/less/logo.svg" class="logo-color" alt="Senado SF"></div>
                 <div class="slide"><img src="https://benuzzi.com/wp-content/uploads/2024/08/Capa-1.webp" class="logo-color" alt="Benuzzi"></div>
                 <div class="slide"><img src="https://www.bbva.com.ar/content/dam/library/logos/logo-bbva.svg" class="logo-color" alt="BBVA"></div>
-                <div class="slide"><img src="https://www.ucsf.edu.ar/wp-content/uploads/2020/12/logo-ucsf-v2.png" class="logo-color" alt="UCSF"></div>
+                <div class="slide"><img src="https://www.ucsf.edu.ar/wp-content/uploads/2020/12/logo-ucsf-v2.png" class="logo-blanco" alt="UCSF"></div>
                 <div class="slide"><img src="https://www.amiun.com.ar/nueva_web/images/logo.png" class="logo-color" alt="Amiun"></div>
                 <div class="slide"><img src="https://fedmart.com.ar/wp-content/uploads/2021/02/logo-fedmart-apaisado2.png" class="logo-color" alt="Fedmart"></div>
                 <div class="slide"><img src="https://www.conicet.gov.ar/wp-content/uploads/logo-CONICET_opt.png" class="logo-color" alt="Conicet"></div>
                 <div class="slide"><img src="https://www.utoradioterapia.com.ar/global/img/logo.png" class="logo-color" alt="UTO Radioterapia"></div>
-                <div class="slide"><img src="https://www.unl.edu.ar/wp-content/uploads/2018/05/unl_identidad.svg" class="logo-color" alt="UNL"></div>
-                <div class="slide"><img src="https://concejosantotome.gob.ar/wp-content/uploads/2024/08/Web-Logo-y-letras.png" class="logo-color" alt="Concejo Santo Tome"></div>
-                <div class="slide"><img src="https://sauceviejo.gob.ar/sauceonline/wp-content/uploads/2025/12/cropped-Logo-Municipalidad.jpg" class="logo-color" alt="Municipalidad Sauce Viejo"></div>
+                <div class="slide"><img src="https://www.unl.edu.ar/wp-content/uploads/2018/05/unl_identidad.svg" class="logo-blanco" alt="UNL"></div>
+                <div class="slide"><img src="https://concejosantotome.gob.ar/wp-content/uploads/2024/08/Web-Logo-y-letras.png" class="logo-blanco" alt="Concejo Santo Tome"></div>
+                <div class="slide"><img src="https://sauceviejo.gob.ar/sauceonline/wp-content/uploads/2025/12/cropped-Logo-Municipalidad.jpg" class="logo-jpg" alt="Municipalidad Sauce Viejo"></div>
 
-                <div class="slide"><img src="https://static.wixstatic.com/media/813d9d_ec9f3ed8474646b287a4cc86b8070ae7~mv2.png/v1/fill/w_90,h_64,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Recurso%2013.png" class="logo-color"></div>
-                <div class="slide"><img src="https://epe.santafe.gov.ar/institucional/img/logoEPE2.svg" class="logo-color" alt="EPE"></div>
+                <div class="slide"><img src="https://static.wixstatic.com/media/813d9d_ec9f3ed8474646b287a4cc86b8070ae7~mv2.png/v1/fill/w_90,h_64,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Recurso%2013.png" class="logo-color" alt="Friar"></div>
+                <div class="slide"><img src="https://epe.santafe.gov.ar/institucional/img/logoEPE2.svg" class="logo-blanco" alt="EPE"></div>
                 <div class="slide"><img src="https://unr.edu.ar/wp-content/uploads/2021/12/cropped-logo-contorno-uiversidad-blanco-fondo-transp-2.png" class="logo-blanco" alt="UNR"></div>
-                <div class="slide"><img src="https://fortressclub.com.ar/assets/images/logo.png" class="logo-color" alt="Fortress"></div>
+                <div class="slide"><img src="https://fortressclub.com.ar/assets/images/logo.png" class="logo-blanco" alt="Fortress"></div>
                 <div class="slide"><img src="https://avalian.com/credencial/img/avalian_logo-color.png" class="logo-color" alt="Avalian"></div>
                 <div class="slide"><img src="https://portal.prd.smiles.com.ar/documents/d/guest/e2bd0600-9b24-11ed-aca2-37db769eb59f-Logo-banco-patagonia-positivo-8-fondo-azul" class="logo-color" alt="Banco Patagonia"></div>
                 <div class="slide"><img src="https://www.bancomeridian.com/img/logo.png" class="logo-color" alt="Banco Meridian"></div>
                 <div class="slide"><img src="https://www.cibic.com.ar/wp-content/uploads/2019/04/logonew.png" class="logo-color" alt="Cibic"></div>
-                <div class="slide"><img src="https://princemedicalsupplies.com/views/layout/prince/img/logo.png" class="logo-color" alt="Prince"></div>
+                <div class="slide"><img src="https://princemedicalsupplies.com/views/layout/prince/img/logo.png" class="logo-blanco" alt="Prince Medical Supplies"></div>
                 <div class="slide"><img src="https://peargnc.com/img/logo.png" class="logo-color" alt="Pear GNC"></div>
                 <div class="slide"><img src="https://www.pami.org.ar/imagenes/logo_pami_azul.svg" class="logo-color" alt="PAMI"></div>
                 <div class="slide"><img src="https://i0.wp.com/tatarapido.ar/wp-content/uploads/2024/08/logo-tata-rapido-web-02-1.png?fit=438%2C100&ssl=1" class="logo-color" alt="Tata Rapido"></div>
-                <div class="slide"><img src="https://sitio.swift.com.ar/img/logo-menu.png" class="logo-color" alt="Swift"></div>
+                <div class="slide"><img src="https://sitio.swift.com.ar/img/logo-menu.png" class="logo-blanco" alt="Swift"></div>
                 <div class="slide"><img src="https://paer.rafaela.gob.ar/wp-content/uploads/2025/05/logo-paer.svg" class="logo-color" alt="PAER"></div>
                 <div class="slide"><img src="https://fundanest.org.ar/wp-content/uploads/2022/11/logo_fundacion_anestesiologica_light.png" class="logo-blanco" alt="Fundanest"></div>
                 <div class="slide"><img src="https://etiketten.com.ar/web/img/logo.png" class="logo-color" alt="Etiketten"></div>
                 <div class="slide"><img src="https://www.grupoorono.com.ar/themes/grupo-oronio/assets/images/logo.svg" class="logo-color" alt="Grupo Oroño"></div>
                 <div class="slide"><img src="https://www.afip.gob.ar/frameworkAFIP/img/Arca-logo-grande-blanco.svg" class="logo-blanco" alt="ARCA"></div>
-                <div class="slide"><img src="https://www.bancocredicoop.coop/imagenes/banco-credicoop.jpg" class="logo-color" alt="Banco Credicoop"></div>
+                <div class="slide"><img src="https://www.bancocredicoop.coop/imagenes/banco-credicoop.jpg" class="logo-jpg" alt="Banco Credicoop"></div>
                 <div class="slide"><img src="https://diputadossantafe.gov.ar/web/img/logo_cdsf2-OK-sinluto.svg" class="logo-color" alt="Diputados SF"></div>
                 <div class="slide"><img src="https://grupomit.com.ar/wp-content/uploads/2025/12/mit_logo.svg" class="logo-color" alt="Grupo MIT"></div>
-                <div class="slide"><img src="https://www.somosfuturo.com.ar/images/logo-header.png" class="logo-color" alt="Somos Futuro"></div>
+                <div class="slide"><img src="https://www.somosfuturo.com.ar/images/logo-header.png" class="logo-blanco" alt="Somos Futuro"></div>
                 <div class="slide"><img src="https://maxiconsumo.com/media/logo/default/Black_Week_2025-02.png" class="logo-color" alt="Maxiconsumo"></div>
                 <div class="slide"><img src="https://www.medife.com.ar/themes/custom/medifetema/images/logo-nh.svg" class="logo-color" alt="Medife"></div>
                 <div class="slide"><img src="https://santafeciudad.gov.ar/wp-content/uploads/2020/06/SantaFeCapital_Logo_800x400-e1591880179119.png" class="logo-color" alt="Santa Fe Capital"></div>
@@ -509,14 +477,14 @@
                 <div class="slide"><img src="https://www.senadosantafe.gob.ar/sites/all/themes/bootstrap_senado/less/logo.svg" class="logo-color" alt="Senado SF"></div>
                 <div class="slide"><img src="https://benuzzi.com/wp-content/uploads/2024/08/Capa-1.webp" class="logo-color" alt="Benuzzi"></div>
                 <div class="slide"><img src="https://www.bbva.com.ar/content/dam/library/logos/logo-bbva.svg" class="logo-color" alt="BBVA"></div>
-                <div class="slide"><img src="https://www.ucsf.edu.ar/wp-content/uploads/2020/12/logo-ucsf-v2.png" class="logo-color" alt="UCSF"></div>
+                <div class="slide"><img src="https://www.ucsf.edu.ar/wp-content/uploads/2020/12/logo-ucsf-v2.png" class="logo-blanco" alt="UCSF"></div>
                 <div class="slide"><img src="https://www.amiun.com.ar/nueva_web/images/logo.png" class="logo-color" alt="Amiun"></div>
                 <div class="slide"><img src="https://fedmart.com.ar/wp-content/uploads/2021/02/logo-fedmart-apaisado2.png" class="logo-color" alt="Fedmart"></div>
                 <div class="slide"><img src="https://www.conicet.gov.ar/wp-content/uploads/logo-CONICET_opt.png" class="logo-color" alt="Conicet"></div>
                 <div class="slide"><img src="https://www.utoradioterapia.com.ar/global/img/logo.png" class="logo-color" alt="UTO Radioterapia"></div>
-                <div class="slide"><img src="https://www.unl.edu.ar/wp-content/uploads/2018/05/unl_identidad.svg" class="logo-color" alt="UNL"></div>
-                <div class="slide"><img src="https://concejosantotome.gob.ar/wp-content/uploads/2024/08/Web-Logo-y-letras.png" class="logo-color" alt="Concejo Santo Tome"></div>
-                <div class="slide"><img src="https://sauceviejo.gob.ar/sauceonline/wp-content/uploads/2025/12/cropped-Logo-Municipalidad.jpg" class="logo-color" alt="Municipalidad Sauce Viejo"></div>
+                <div class="slide"><img src="https://www.unl.edu.ar/wp-content/uploads/2018/05/unl_identidad.svg" class="logo-blanco" alt="UNL"></div>
+                <div class="slide"><img src="https://concejosantotome.gob.ar/wp-content/uploads/2024/08/Web-Logo-y-letras.png" class="logo-blanco" alt="Concejo Santo Tome"></div>
+                <div class="slide"><img src="https://sauceviejo.gob.ar/sauceonline/wp-content/uploads/2025/12/cropped-Logo-Municipalidad.jpg" class="logo-jpg" alt="Municipalidad Sauce Viejo"></div>
             </div>
         </div>
     </section>
@@ -567,7 +535,7 @@
                 <div class="feature-line"></div>
                 <div>
                     <h3>Cumplimiento ESG</h3>
-                    <p>Supresión absoluta de plásticos de un solo uso y huella de carbono logística. Hardware operado mediante refrigerantes de bajo impacto ambiental.</p>
+                    <p>Supresión absoluta de plásticos de un solo uso y huella de carbono logística. Hardware operado mediante refrigerantes ecológicos de bajo impacto ambiental.</p>
                 </div>
             </div>
             <div class="feature-item reveal">
@@ -596,7 +564,7 @@
             <div class="faq-item">
                 <div class="faq-question">¿La instalación requiere intervenciones de obra civil? <span>+</span></div>
                 <div class="faq-answer">
-                    En absoluto. El procedimiento consta de una adaptación de llave tipo "T" en la toma de agua existente más cercana. La conducción se realiza mediante un ducto milimétrico de 6mm, fácilmente disimulable tras zócalos o mobiliario.
+                    En absoluto. El procedimiento consta de una adaptación de llave de conexión exclusiva en la toma de agua existente más cercana. La conducción se realiza mediante un ducto milimétrico de 6mm, fácilmente disimulable tras zócalos o mobiliario.
                 </div>
             </div>
             <div class="faq-item">
@@ -614,53 +582,125 @@
         </div>
     </section>
 
-    <section id="contacto" class="section-padding contact-section">
-        <div class="text-center reveal">
-            <span class="pre-title">Contacto Comercial</span>
-            <h2 class="section-title">Inicie la actualización de su empresa</h2>
-            <p style="margin-bottom: 50px;">Complete sus datos corporativos y un asesor ejecutivo coordinará una evaluación de factibilidad.</p>
-        </div>
-        <div class="form-container reveal">
-            <form>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Nombre *</label>
-                        <input type="text" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Apellido *</label>
-                        <input type="text" required>
-                    </div>
+    <section id="contacto" class="contact-section">
+        <div class="contact-wrapper">
+            <div class="contact-info reveal">
+                <span class="pre-title">Contacto Comercial</span>
+                <h2 class="section-title">Inicie la actualización de su empresa</h2>
+                <p>Nuestros asesores ejecutivos diseñarán un plan a la medida de su infraestructura y dotación de personal. Reciba una cotización formal en menos de 24 horas hábiles.</p>
+                <div class="trust-badges">
+                    <p>✅ Más de 9 años liderando el sector corporativo.</p>
+                    <p>✅ Instalación bonificada para nuevos clientes B2B.</p>
                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email Corporativo *</label>
-                        <input type="email" required>
+            </div>
+
+            <div class="form-container reveal">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido *</label>
+                            <input type="text" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Empresa *</label>
-                        <input type="text" required>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email Corporativo *</label>
+                            <input type="email" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Cargo Organizacional *</label>
-                        <input type="text" required>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Empresa *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cargo Organizacional *</label>
+                            <input type="text" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label>Principal desafío operativo a resolver *</label>
-                    <select required>
-                        <option value="" disabled selected>Seleccione la opción correspondiente...</option>
-                        <option value="1">Necesidad de agua purificada certificada para el personal</option>
-                        <option value="2">Optimización de tiempos muertos (preparación de infusiones)</option>
-                        <option value="3">Abastecimiento continuo de agua térmica (frío/calor)</option>
-                        <option value="4">Reemplazo de proveedor logístico de bidones actual</option>
-                        <option value="5">Otro</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Solicitar Evaluación Técnica</button>
-            </form>
+
+                    <div class="form-row">
+                        <div class="form-group input-with-icon">
+                            <label>Localidad (Provincia de Santa Fe) *</label>
+                            <input type="text" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
+                            <datalist id="localidades-sf">
+                                <option value="Rosario">
+                                <option value="Santa Fe (Capital)">
+                                <option value="Rafaela">
+                                <option value="Villa Gobernador Gálvez">
+                                <option value="Venado Tuerto">
+                                <option value="Reconquista">
+                                <option value="Santo Tomé">
+                                <option value="San Lorenzo">
+                                <option value="Esperanza">
+                                <option value="Granadero Baigorria">
+                                <option value="Casilda">
+                                <option value="Cañada de Gómez">
+                                <option value="Capitán Bermúdez">
+                                <option value="Coronda">
+                                <option value="Firmat">
+                                <option value="Funes">
+                                <option value="Gálvez">
+                                <option value="Pérez">
+                                <option value="Puerto General San Martín">
+                                <option value="Roldán">
+                                <option value="Sunchales">
+                                <option value="San Justo">
+                                <option value="Arroyo Seco">
+                                <option value="Ceres">
+                                <option value="Rufino">
+                                <option value="San Jorge">
+                                <option value="Tostado">
+                                <option value="Carcarañá">
+                            </datalist>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>¿Para cuántas personas sería el servicio? *</label>
+                            <select required>
+                                <option value="" disabled selected>Seleccione la cantidad...</option>
+                                <option value="1-15">De 1 a 15 personas</option>
+                                <option value="16-50">De 16 a 50 personas</option>
+                                <option value="51-100">De 51 a 100 personas</option>
+                                <option value="100+">Más de 100 personas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label>Principal desafío operativo a resolver *</label>
+                        <select required>
+                            <option value="" disabled selected>Seleccione la opción correspondiente...</option>
+                            <option value="1">Necesidad de agua purificada certificada para el personal</option>
+                            <option value="2">Optimización de tiempos muertos (preparación de infusiones)</option>
+                            <option value="3">Abastecimiento continuo de agua térmica (frío/calor)</option>
+                            <option value="4">Reemplazo de proveedor logístico de bidones actual</option>
+                            <option value="5">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="captcha-box" id="captcha-box">
+                        <div class="captcha-left" onclick="validateCaptcha()">
+                            <div class="captcha-checkbox" id="captcha-checkbox"></div>
+                            <span class="captcha-text">No soy un robot</span>
+                        </div>
+                        <div class="captcha-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/1200px-RecaptchaLogo.svg.png" alt="reCAPTCHA">
+                            <span>Privacidad - Términos</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn" id="submitBtn" style="opacity: 0.5; pointer-events: none;">Solicitar Evaluación Técnica</button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -669,7 +709,25 @@
     </footer>
 
     <script>
-        // 1. Animación de Esferas de Cristal (Canvas Premium)
+        // 1. Lógica Captcha
+        let captchaValid = false;
+        function validateCaptcha() {
+            if(captchaValid) return;
+            const checkbox = document.getElementById('captcha-checkbox');
+            const submitBtn = document.getElementById('submitBtn');
+            
+            checkbox.classList.add('loading');
+            
+            setTimeout(() => {
+                checkbox.classList.remove('loading');
+                checkbox.classList.add('checked');
+                captchaValid = true;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.pointerEvents = 'auto';
+            }, 800); // Simula el tiempo de red
+        }
+
+        // 2. Animación de Esferas de Cristal (Canvas)
         const canvas = document.getElementById('glassCanvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -683,68 +741,41 @@
         resize();
 
         class Orb {
-            constructor() {
-                this.reset();
-                this.y = Math.random() * height; // Iniciar dispersos
-            }
+            constructor() { this.reset(); this.y = Math.random() * height; }
             reset() {
-                this.x = Math.random() * width;
-                this.y = height + Math.random() * 100;
-                this.radius = Math.random() * 80 + 20; // Esferas grandes y medianas
-                this.speed = Math.random() * 0.4 + 0.1; // Movimiento extremadamente lento
-                this.opacity = Math.random() * 0.03 + 0.01; // Casi invisibles, muy sutil
+                this.x = Math.random() * width; this.y = height + Math.random() * 100;
+                this.radius = Math.random() * 80 + 20; this.speed = Math.random() * 0.4 + 0.1; 
+                this.opacity = Math.random() * 0.03 + 0.01; 
             }
             update() {
-                this.y -= this.speed;
-                if (this.y + this.radius < 0) this.reset();
+                this.y -= this.speed; if (this.y + this.radius < 0) this.reset();
             }
             draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                // Borde de cristal suave
-                ctx.strokeStyle = `rgba(2, 132, 199, ${this.opacity * 2})`;
-                ctx.lineWidth = 1;
-                ctx.stroke();
-                // Relleno iluminado
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(2, 132, 199, ${this.opacity * 2})`; ctx.lineWidth = 1; ctx.stroke();
                 let gradient = ctx.createRadialGradient(this.x - this.radius/3, this.y - this.radius/3, 0, this.x, this.y, this.radius);
                 gradient.addColorStop(0, `rgba(255, 255, 255, ${this.opacity * 3})`);
                 gradient.addColorStop(1, `rgba(2, 132, 199, ${this.opacity})`);
-                ctx.fillStyle = gradient;
-                ctx.fill();
+                ctx.fillStyle = gradient; ctx.fill();
             }
         }
 
         function initOrbs() {
-            orbs = [];
-            // Menos elementos para mayor elegancia
-            let orbCount = Math.floor(width / 80);
-            for (let i = 0; i < orbCount; i++) {
-                orbs.push(new Orb());
-            }
+            orbs = []; let orbCount = Math.floor(width / 80);
+            for (let i = 0; i < orbCount; i++) orbs.push(new Orb());
         }
         initOrbs();
 
         function animateOrbs() {
             ctx.clearRect(0, 0, width, height);
-            
-            // Haces de luz diagonales estáticos en el fondo
-            ctx.beginPath();
-            ctx.moveTo(0, 0);
-            ctx.lineTo(width * 0.5, height);
-            ctx.lineTo(width * 0.8, height);
-            ctx.lineTo(width * 0.2, 0);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-            ctx.fill();
-
-            orbs.forEach(orb => {
-                orb.update();
-                orb.draw();
-            });
+            ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(width * 0.5, height); ctx.lineTo(width * 0.8, height); ctx.lineTo(width * 0.2, 0);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.4)'; ctx.fill();
+            orbs.forEach(orb => { orb.update(); orb.draw(); });
             requestAnimationFrame(animateOrbs);
         }
         animateOrbs();
 
-        // Navbar Efecto Scroll
+        // Navbar Scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if(window.scrollY > 50) nav.classList.add('scrolled');
@@ -755,10 +786,7 @@
         const reveals = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if(entry.isIntersecting){
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
+                if(entry.isIntersecting){ entry.target.classList.add('active'); observer.unobserve(entry.target); }
             });
         }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
         reveals.forEach(element => revealObserver.observe(element));
@@ -769,14 +797,8 @@
             const question = item.querySelector('.faq-question');
             question.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                faqItems.forEach(i => {
-                    i.classList.remove('active');
-                    i.querySelector('span').textContent = '+';
-                });
-                if(!isActive) {
-                    item.classList.add('active');
-                    item.querySelector('span').textContent = '-';
-                }
+                faqItems.forEach(i => { i.classList.remove('active'); i.querySelector('span').textContent = '+'; });
+                if(!isActive) { item.classList.add('active'); item.querySelector('span').textContent = '-'; }
             });
         });
     </script>
