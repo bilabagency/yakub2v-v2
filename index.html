@@ -297,6 +297,9 @@
 
         .submit-btn { width: 100%; padding: 20px; font-size: 1.05rem; }
 
+        .required-mark { color: #DC2626; font-weight: 700; margin-left: 2px; }
+        .optional-mark { color: #94A3B8; font-weight: 400; font-style: italic; font-size: 0.75rem; letter-spacing: 0; text-transform: none; margin-left: 4px; }
+
         /* Footer */
         footer { background: #040D17; padding: 40px 5%; text-align: center; color: #64748B; font-size: 0.85rem; letter-spacing: 0.5px; }
 
@@ -379,7 +382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <ul class="service-list">
                     <li>
                         <div>
-                            <strong>Abono Flat Rate</strong>
+                            <strong>Abono de Tarifa Plana</strong>
                             Inversión mensual estrictamente fija, independientemente de los picos de consumo de sus empleados.
                         </div>
                     </li>
@@ -398,7 +401,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <li>
                         <div>
                             <strong>Recambio Certificado</strong>
-                            Sustitución programada de filtros Fucari (aprobados por ANMAT) garantizando calidad ininterrumpida.
+                            Sustitución programada de filtros Fukari (aprobados por ANMAT) garantizando calidad ininterrumpida.
                         </div>
                     </li>
                 </ul>
@@ -516,7 +519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p>Módulo que incorpora compartimento inferior de refrigeración. Optimiza los espacios de reuniones sin requerir equipamiento blanco adicional.</p>
             </div>
             <div class="equipo-card reveal">
-                <h3>ICE Industrial (Heavy Duty)</h3>
+                <h3>ICE Industrial (Uso Intensivo)</h3>
                 <p>Estructura robusta para alta exigencia operativa. Capacidad de suministro de 11 litros continuos sin pérdida de rendimiento térmico.</p>
             </div>
             <div class="equipo-card reveal">
@@ -538,7 +541,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="feature-item reveal">
                 <div class="feature-line"></div>
                 <div>
-                    <h3>Certificación ANMAT (Fucari)</h3>
+                    <h3>Certificación ANMAT (Fukari)</h3>
                     <p>Integración de tecnología de filtrado avalada bajo normativas sanitarias estrictas, cumpliendo requerimientos de auditorías y licitaciones.</p>
                 </div>
             </div>
@@ -609,36 +612,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <form>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Nombre *</label>
+                            <label>Nombre <span class="required-mark">*</span></label>
                             <input type="text" required>
                         </div>
                         <div class="form-group">
-                            <label>Apellido *</label>
-                            <input type="text" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Email Corporativo *</label>
-                            <input type="email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Empresa *</label>
-                            <input type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Cargo Organizacional *</label>
+                            <label>Apellido <span class="required-mark">*</span></label>
                             <input type="text" required>
                         </div>
                     </div>
 
                     <div class="form-row">
+                        <div class="form-group">
+                            <label>Email Corporativo <span class="required-mark">*</span></label>
+                            <input type="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Empresa <span class="required-mark">*</span></label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cargo Organizacional <span class="optional-mark">(opcional)</span></label>
+                            <input type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group input-with-icon">
-                            <label>Localidad (Provincia de Santa Fe) *</label>
+                            <label>Localidad (Provincia de Santa Fe) <span class="required-mark">*</span></label>
                             <input type="text" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
                             <datalist id="localidades-sf">
                                 <option value="Rosario">
@@ -675,8 +678,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>¿Para cuántas personas sería el servicio? *</label>
-                            <select required>
+                            <label>¿Para cuántas personas sería el servicio? <span class="optional-mark">(opcional)</span></label>
+                            <select>
                                 <option value="" disabled selected>Seleccione la cantidad...</option>
                                 <option value="1-15">De 1 a 15 personas</option>
                                 <option value="16-50">De 16 a 50 personas</option>
@@ -687,8 +690,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 
                     <div class="form-group" style="margin-bottom: 25px;">
-                        <label>Principal desafío operativo a resolver *</label>
-                        <select required>
+                        <label>Principal desafío operativo a resolver <span class="optional-mark">(opcional)</span></label>
+                        <select>
                             <option value="" disabled selected>Seleccione la opción correspondiente...</option>
                             <option value="1">Necesidad de agua purificada certificada para el personal</option>
                             <option value="2">Optimización de tiempos muertos (preparación de infusiones)</option>
