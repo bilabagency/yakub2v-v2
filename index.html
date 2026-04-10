@@ -729,9 +729,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             if(captchaValid) return;
             const checkbox = document.getElementById('captcha-checkbox');
             const submitBtn = document.getElementById('submitBtn');
-            
+
             checkbox.classList.add('loading');
-            
+
             setTimeout(() => {
                 checkbox.classList.remove('loading');
                 checkbox.classList.add('checked');
@@ -740,6 +740,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 submitBtn.style.pointerEvents = 'auto';
             }, 800); // Simula el tiempo de red
         }
+
+        // Redirección a thank you page al enviar el formulario
+        document.querySelector('.form-container form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (!captchaValid) return;
+            window.location.href = 'gracias.html';
+        });
 
         // 2. Animación de Esferas de Cristal (Canvas)
         const canvas = document.getElementById('glassCanvas');

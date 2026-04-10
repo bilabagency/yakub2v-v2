@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KPHD3RXN');</script>
+    <!-- End Google Tag Manager -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias | Yakú</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #FFFFFF;
+            --bg-alt: #F8FAFC;
+            --primary: #0A2540;
+            --primary-light: #173A5E;
+            --accent: #0284C7;
+            --text-dark: #0F172A;
+            --text-muted: #475569;
+            --border-light: #E2E8F0;
+            --shadow-premium: 0 10px 30px -5px rgba(10, 37, 64, 0.08);
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+        }
+        nav img { height: 65px; object-fit: contain; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 40px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            border: 1px solid var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+            box-shadow: var(--shadow-premium);
+        }
+
+        .thank-you {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 5% 80px;
+            background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+            text-align: center;
+        }
+
+        .thank-you-content {
+            max-width: 620px;
+        }
+
+        .check-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0284C7, #0A2540);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 35px;
+            animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .check-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: white;
+            stroke-width: 3;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .pre-title {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .thank-you-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .thank-you-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .steps {
+            display: flex;
+            gap: 30px;
+            margin: 45px 0;
+            text-align: left;
+        }
+
+        .step {
+            flex: 1;
+            padding: 30px 25px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-alt);
+            transition: var(--transition);
+        }
+        .step:hover { box-shadow: var(--shadow-premium); }
+
+        .step-number {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+            display: block;
+            letter-spacing: 2px;
+        }
+
+        .step h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        footer {
+            background: #040D17;
+            padding: 40px 5%;
+            text-align: center;
+            color: #64748B;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-content h1 { font-size: 2rem; }
+            .steps { flex-direction: column; gap: 15px; }
+        }
+    </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KPHD3RXN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <nav>
+        <a href="index.html"><img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" alt="Yakú Logo"></a>
+    </nav>
+
+    <section class="thank-you">
+        <div class="thank-you-content">
+            <div class="check-icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="pre-title">Solicitud recibida</span>
+            <h1>Gracias por contactarnos</h1>
+            <p>Su solicitud fue registrada con éxito. Un asesor ejecutivo de Yakú se comunicará con usted en las próximas <strong>24 horas hábiles</strong> para diseñar una propuesta a medida.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">01</span>
+                    <h3>Análisis</h3>
+                    <p>Evaluamos su infraestructura y dotación de personal.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">02</span>
+                    <h3>Propuesta</h3>
+                    <p>Recibe una cotización formal personalizada.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">03</span>
+                    <h3>Instalación</h3>
+                    <p>Despliegue express en 15-20 minutos, sin obras.</p>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn">Volver al inicio</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yakú. Servicios Corporativos de Purificación de Agua.</p>
+    </footer>
+</body>
+</html>
