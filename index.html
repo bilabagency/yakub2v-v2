@@ -273,8 +273,8 @@
         /* UI CAPTCHA Simulado */
         .captcha-box {
             display: flex; align-items: center; justify-content: space-between;
-            background: #F9F9F9; border: 1px solid #D3D3D3; border-radius: 3px;
-            padding: 10px 15px; margin-bottom: 25px; box-shadow: 0px 0px 4px rgba(0,0,0,0.05);
+            background: var(--bg-alt); border: 1px solid var(--border-light); border-radius: 6px;
+            padding: 14px 16px; margin-bottom: 25px;
         }
         .captcha-left { display: flex; align-items: center; gap: 15px; cursor: pointer; }
         
@@ -290,10 +290,17 @@
         }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
-        .captcha-text { font-family: 'Roboto', sans-serif; font-size: 0.9rem; color: #555; }
-        .captcha-logo { display: flex; flex-direction: column; align-items: center; }
-        .captcha-logo img { width: 30px; margin-bottom: 2px; }
-        .captcha-logo span { font-size: 0.5rem; color: #999; }
+        .captcha-text { font-size: 0.9rem; color: var(--text-muted); }
+        .captcha-note {
+            font-size: 0.6rem; line-height: 1.3; text-align: right;
+            text-transform: uppercase; letter-spacing: 0.5px; color: #94A3B8;
+        }
+        .captcha-left:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+        /* Honeypot: fuera de pantalla, sin display:none (los bots lo detectan) */
+        .hp-field {
+            position: absolute; left: -9999px; top: auto;
+            width: 1px; height: 1px; overflow: hidden;
+        }
 
         .submit-btn { width: 100%; padding: 20px; font-size: 1.05rem; }
 
@@ -542,15 +549,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </select>
                 </div>
 
+                <!-- Trampa anti-bot: invisible para personas, los bots la completan -->
+                <div class="hp-field" aria-hidden="true">
+                    <label for="hp-website">No completar este campo</label>
+                    <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off">
+                </div>
+
                 <div class="captcha-box" id="captcha-box">
-                    <div class="captcha-left" onclick="validateCaptcha()">
+                    <div class="captcha-left" id="captcha-toggle" role="checkbox" aria-checked="false" tabindex="0" onclick="validateCaptcha()">
                         <div class="captcha-checkbox" id="captcha-checkbox"></div>
-                        <span class="captcha-text">No soy un robot</span>
+                        <span class="captcha-text">Confirmo que no soy un robot</span>
                     </div>
-                    <div class="captcha-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/1200px-RecaptchaLogo.svg.png" alt="reCAPTCHA">
-                        <span>Privacidad - Términos</span>
-                    </div>
+                    <span class="captcha-note">Verificación<br>de seguridad</span>
                 </div>
 
                 <button type="submit" class="btn submit-btn" id="submitBtn" style="opacity: 0.5; pointer-events: none;">Solicitar Evaluación Técnica</button>
@@ -896,11 +906,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </footer>
 
     <script>
-        // 1. Lógica Captcha
+        // 1. Verificación anti-bot
+        // Tres señales combinadas: interacción explícita, honeypot y tiempo de
+        // llenado. No reemplaza a una validación en el servidor, pero frena a
+        // los bots que completan formularios de forma automática.
+        const formOpenedAt = Date.now();
+        const TIEMPO_MINIMO_MS = 4000; // una persona no completa 9 campos en menos
+
         let captchaValid = false;
         function validateCaptcha() {
             if(captchaValid) return;
             const checkbox = document.getElementById('captcha-checkbox');
+            const toggle = document.getElementById('captcha-toggle');
             const submitBtn = document.getElementById('submitBtn');
 
             checkbox.classList.add('loading');
@@ -908,16 +925,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             setTimeout(() => {
                 checkbox.classList.remove('loading');
                 checkbox.classList.add('checked');
+                toggle.setAttribute('aria-checked', 'true');
                 captchaValid = true;
                 submitBtn.style.opacity = '1';
                 submitBtn.style.pointerEvents = 'auto';
-            }, 800); // Simula el tiempo de red
+            }, 500);
         }
+
+        // Accesible por teclado: la casilla es un role="checkbox"
+        document.getElementById('captcha-toggle').addEventListener('keydown', (e) => {
+            if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); validateCaptcha(); }
+        });
 
         // Envío del formulario a la API del CRM
         document.querySelector('.form-container form').addEventListener('submit', async function(e) {
             e.preventDefault();
             if (!captchaValid) return;
+
+            // Honeypot: si viene completo, es un bot. Se corta sin avisar por qué.
+            if (this.website && this.website.value.trim() !== '') return;
+
+            // Llenado sospechosamente rápido para un formulario de nueve campos.
+            if (Date.now() - formOpenedAt < TIEMPO_MINIMO_MS) {
+                alert('Por favor revise los datos ingresados antes de enviar.');
+                return;
+            }
 
             const btn = document.getElementById('submitBtn');
             const textoOriginal = btn.textContent;
@@ -932,6 +964,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 contacto_nombre: (f.nombre.value.trim() + ' ' + f.apellido.value.trim()).trim(),
                 contacto_email: f.email.value.trim(),
                 contacto_telefono: f.telefono.value.trim(),
+                localidad: f.localidad.value.trim(),
                 cargo: f.cargo.value.trim() || null,
                 cantidad_empleados: f.cantidad_empleados.value || null,
                 desafio: f.desafio.value || null,
