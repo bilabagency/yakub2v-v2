@@ -236,7 +236,7 @@
         /* Tarjeta del Formulario */
         .form-container {
             background: #FFFFFF;
-            padding: 50px 40px;
+            padding: 38px 34px;
             border-radius: 8px;
             box-shadow: 0 30px 60px rgba(0,0,0,0.4);
             position: relative;
@@ -377,15 +377,17 @@
         }
         .hero .hero-container { align-items: flex-start; }
         .hero-form { flex: 0 0 540px; max-width: 540px; padding: 32px 30px; scroll-margin-top: 110px; }
-        /* Ritmo mas compacto que el del cierre: el hero no debe pedir scroll */
-        .hero-form label { font-size: 0.72rem; margin-bottom: 5px; letter-spacing: 0.4px; }
-        .hero-form input, .hero-form select { padding: 10px 12px; font-size: 0.93rem; }
-        .hero-form .captcha-box { padding: 9px 13px; margin-bottom: 18px; }
-        .hero-form .captcha-checkbox { width: 22px; height: 22px; }
-        .hero-form .captcha-checkbox.checked::after { font-size: 18px; }
-        .hero-form .captcha-text { font-size: 0.82rem; }
-        .hero-form .submit-btn { padding: 15px; font-size: 0.98rem; }
-        .hero-form .form-group--full { margin-bottom: 16px; }
+        /* Ritmo compacto, comun a los dos formularios */
+        .form-container label { font-size: 0.72rem; margin-bottom: 5px; letter-spacing: 0.4px; }
+        .form-container input, .form-container select { padding: 10px 12px; font-size: 0.93rem; }
+        .form-container .captcha-box { padding: 9px 13px; margin-bottom: 18px; }
+        .form-container .captcha-checkbox { width: 22px; height: 22px; }
+        .form-container .captcha-checkbox.checked::after { font-size: 18px; }
+        .form-container .captcha-text { font-size: 0.82rem; }
+        .form-container .submit-btn { padding: 15px; font-size: 0.98rem; }
+        .form-container .form-row { margin-bottom: 14px; gap: 16px; }
+        .form-container .form-group { margin-bottom: 0; }
+        .form-container .form-group--full { margin-bottom: 16px; }
         /* Etiquetas de distinto alto (ej. "Cargo Organizacional") no deben
            desalinear los inputs de la fila. Solo en desktop: en mobile la fila
            es columna y flex-end alinearia a la derecha encogiendo los campos. */
@@ -393,8 +395,6 @@
             .form-row { align-items: flex-end; }
         }
         .hero-form.form-container { box-shadow: 0 24px 50px -18px rgba(10, 37, 64, 0.22); border: 1px solid var(--border-light); }
-        .hero-form .form-row { margin-bottom: 14px; gap: 16px; }
-        .hero-form .form-group { margin-bottom: 0; }
 
         /* ===== CATÁLOGO DE EQUIPOS ===== */
         .cat-grid {
