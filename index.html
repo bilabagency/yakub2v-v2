@@ -378,8 +378,11 @@
         .hero .hero-container { align-items: flex-start; }
         .hero-form { flex: 0 0 470px; max-width: 470px; padding: 36px 32px; scroll-margin-top: 110px; }
         /* Etiquetas de distinto alto (ej. "Cargo Organizacional") no deben
-           desalinear los inputs de la fila */
-        .form-row { align-items: flex-end; }
+           desalinear los inputs de la fila. Solo en desktop: en mobile la fila
+           es columna y flex-end alinearia a la derecha encogiendo los campos. */
+        @media (min-width: 993px) {
+            .form-row { align-items: flex-end; }
+        }
         .hero-form.form-container { box-shadow: 0 24px 50px -18px rgba(10, 37, 64, 0.22); border: 1px solid var(--border-light); }
         .hero-form .form-row { margin-bottom: 18px; }
         .hero-form .form-group { margin-bottom: 0; }
@@ -420,6 +423,9 @@
             .hero-form { flex: 0 0 420px; max-width: 420px; }
         }
         @media (max-width: 992px) {
+            /* El padding va aca y no antes: la regla base de .hero-form es
+               posterior a la media query general de .form-container */
+            .hero-form.form-container { padding: 30px 20px; }
             .hero-form { flex: 1 1 auto; width: 100%; max-width: 560px; text-align: left; }
             .hero-chips { justify-content: center; }
         }
