@@ -349,6 +349,73 @@
             .wa-float { width: 54px; height: 54px; bottom: 18px; right: 18px; }
             .wa-float svg { width: 28px; height: 28px; }
         }
+
+        /* ===== HERO CON FORMULARIO ===== */
+        .hero-text { flex: 1; max-width: 620px; }
+        .hero-text h1 {
+            font-size: clamp(2.8rem, 5.2vw, 4.4rem);
+            line-height: 1.02;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+        .hero-text .pre-title { font-size: 0.8rem; letter-spacing: 2.5px; margin-bottom: 20px; }
+        .hero-text p { margin-bottom: 32px; }
+        .hero-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+        .hero-chips span {
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.4px;
+            color: var(--primary); background: rgba(2, 132, 199, 0.07);
+            border: 1px solid rgba(2, 132, 199, 0.18);
+            padding: 8px 14px; border-radius: 999px;
+        }
+        .hero .hero-container { align-items: flex-start; }
+        .hero-form { flex: 0 0 470px; max-width: 470px; padding: 36px 32px; scroll-margin-top: 110px; }
+        .hero-form .form-row { align-items: flex-end; }
+        .hero-form.form-container { box-shadow: 0 24px 50px -18px rgba(10, 37, 64, 0.22); border: 1px solid var(--border-light); }
+        .hero-form .form-row { margin-bottom: 18px; }
+        .hero-form .form-group { margin-bottom: 0; }
+
+        /* ===== CATÁLOGO DE EQUIPOS ===== */
+        .cat-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+            max-width: 1200px; margin: 60px auto 0;
+        }
+        .cat-card {
+            background: #FFFFFF; border: 1px solid var(--border-light); border-radius: 10px;
+            overflow: hidden; transition: var(--transition);
+        }
+        .cat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-premium); border-color: var(--border-accent); }
+        .cat-img { position: relative; background: #FFFFFF; padding: 18px; }
+        .cat-img img { width: 100%; height: auto; display: block; aspect-ratio: 900 / 1250; object-fit: contain; }
+        .cat-tag {
+            position: absolute; top: 16px; left: 16px;
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase;
+            color: #FFFFFF; background: var(--primary); padding: 6px 11px; border-radius: 4px;
+        }
+        .cat-body { padding: 4px 26px 28px; border-top: 1px solid var(--border-light); }
+        .cat-body h3 { font-size: 1.35rem; color: var(--primary); margin: 22px 0 10px; }
+        .cat-body p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 16px; font-weight: 300; }
+        .cat-dims {
+            display: inline-block; font-size: 0.76rem; font-weight: 600; letter-spacing: 0.5px;
+            color: var(--accent); text-transform: uppercase;
+        }
+
+        /* ===== CIERRE SIN FORMULARIO ===== */
+        .contact-wrapper--solo { grid-template-columns: 1fr; max-width: 760px; text-align: center; }
+        .contact-wrapper--solo .trust-badges { display: inline-block; text-align: left; margin-bottom: 40px; }
+        .contact-wrapper--solo .btn { display: inline-block; }
+
+        @media (max-width: 1100px) {
+            .cat-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-form { flex: 0 0 420px; max-width: 420px; }
+        }
+        @media (max-width: 992px) {
+            .hero-form { flex: 1 1 auto; width: 100%; max-width: 560px; text-align: left; }
+            .hero-chips { justify-content: center; }
+        }
+        @media (max-width: 640px) {
+            .cat-grid { grid-template-columns: 1fr; max-width: 420px; }
+        }
     </style>
 </head>
 <body>
@@ -366,89 +433,129 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <canvas id="glassCanvas"></canvas>
         <div class="hero-container">
             <div class="hero-text reveal">
-                <span class="pre-title">SERVICIO INTEGRAL PARA EMPRESAS</span>
-                <h1>Agua de red purificada. Cero gestión de bidones.</h1>
-                <p>Yakú transforma un problema logístico en un servicio automatizado. Disfrute de equipos de vanguardia con filtros certificados por ANMAT y olvídese del stock, las demoras del proveedor y las variaciones de precio. Todo incluido en una tarifa plana mensual: instalación express, mantenimiento y recambios.</p>
-                <a href="#contacto" class="btn">Solicitar cotización</a>
-            </div>
-            <div class="hero-image reveal">
-                <img src="equipos-yaku.png" alt="Equipos Yakú">
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding bg-alt">
-        <div class="text-center reveal">
-            <span class="pre-title">Análisis Operativo</span>
-            <h2 class="section-title">El costo oculto de la logística tradicional</h2>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">La gestión de bidones genera ineficiencias sistemáticas que afectan la productividad diaria de su negocio.</p>
-        </div>
-        <div class="problems-grid">
-            <div class="problem-card reveal">
-                <span class="problem-number">01</span>
-                <h3>Pérdida de Tiempo</h3>
-                <p>Interrupciones constantes para recibir proveedores, recambiar botellones pesados y demoras del personal calentando agua de forma manual.</p>
-            </div>
-            <div class="problem-card reveal">
-                <span class="problem-number">02</span>
-                <h3>Espacio Inmovilizado</h3>
-                <p>Metros cuadrados de alto valor corporativo destinados ineficientemente al almacenamiento de stock de bidones llenos y vacíos.</p>
-            </div>
-            <div class="problem-card reveal">
-                <span class="problem-number">03</span>
-                <h3>Riesgo Sanitario</h3>
-                <p>La manipulación constante de cuellos de botellones y canillas tradicionales en zonas de alto tránsito favorece la proliferación bacteriana.</p>
-            </div>
-            <div class="problem-card reveal">
-                <span class="problem-number">04</span>
-                <h3>Inestabilidad de Costos</h3>
-                <p>Ausencia de previsibilidad financiera ante variaciones abruptas de consumo estacional y eventuales cortes de suministro logístico.</p>
-            </div>
-        </div>
-        <div class="cta-center reveal">
-            <a href="#contacto" class="btn btn-outline">Conocer la alternativa</a>
-        </div>
-    </section>
-
-    <section class="section-padding">
-        <div class="service-flex">
-            <div class="service-text reveal">
-                <span class="pre-title">Solución Integral</span>
-                <h2 class="section-title">El Modelo Yakú 360</h2>
-                <p>Transformamos un problema logístico en un servicio automatizado. Su área de compras externaliza por completo la gestión del agua.</p>
-                <ul class="service-list">
-                    <li>
-                        <div>
-                            <strong>Abono de Tarifa Plana</strong>
-                            Inversión mensual estrictamente fija, independientemente de los picos de consumo de sus empleados.
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong>Despliegue Técnico Express</strong>
-                            Instalación no invasiva (15 a 20 min) mediante conectores estéticos y canalización milimétrica oculta.
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong>Mantenimiento Preventivo</strong>
-                            Sanitización y control de equipos a medida de cada cliente.
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <strong>Recambio Certificado</strong>
-                            Sustitución programada de filtros Fukari (aprobados por ANMAT) garantizando calidad ininterrumpida.
-                        </div>
-                    </li>
-                </ul>
-                <div style="margin-top: 40px;">
-                    <a href="#contacto" class="btn">Solicitar Propuesta Comercial</a>
+                <span class="pre-title">Agua de red purificada. Cero gestión de bidones.</span>
+                <h1>Servicio integral para empresas</h1>
+                <p>Cada bidón que entra a su empresa cuesta más que su precio: interrupciones al personal, metros cuadrados de depósito inmovilizados y una logística que alguien tiene que controlar. Yakú conecta equipos con filtrado certificado por ANMAT directo a la red y le devuelve ese tiempo y ese espacio. Todo incluido en una tarifa plana mensual: instalación, mantenimiento y recambios.</p>
+                <div class="hero-chips">
+                    <span>Certificación ANMAT</span>
+                    <span>Tarifa plana mensual</span>
+                    <span>Soporte técnico propio</span>
                 </div>
             </div>
-            <div class="service-image reveal" style="flex: 1; text-align: center;">
-                 <img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" alt="Yakú" style="max-width: 300px; opacity: 0.15;">
-            </div>
+            <div class="form-container hero-form reveal" id="contacto">
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre <span class="required-mark">*</span></label>
+                        <input type="text" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido <span class="required-mark">*</span></label>
+                        <input type="text" name="apellido" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email Corporativo <span class="required-mark">*</span></label>
+                        <input type="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Teléfono <span class="required-mark">*</span></label>
+                        <input type="tel" name="telefono" placeholder="Ej: 341 1234567" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Empresa <span class="required-mark">*</span></label>
+                        <input type="text" name="empresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Cargo Organizacional <span class="optional-mark">(opcional)</span></label>
+                        <input type="text" name="cargo">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group input-with-icon">
+                        <label>Localidad (Provincia de Santa Fe) <span class="required-mark">*</span></label>
+                        <input type="text" name="localidad" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
+                        <datalist id="localidades-sf">
+                            <option value="Rosario">
+                            <option value="Santa Fe (Capital)">
+                            <option value="Rafaela">
+                            <option value="Villa Gobernador Gálvez">
+                            <option value="Venado Tuerto">
+                            <option value="Reconquista">
+                            <option value="Santo Tomé">
+                            <option value="San Lorenzo">
+                            <option value="Esperanza">
+                            <option value="Granadero Baigorria">
+                            <option value="Casilda">
+                            <option value="Cañada de Gómez">
+                            <option value="Capitán Bermúdez">
+                            <option value="Coronda">
+                            <option value="Firmat">
+                            <option value="Funes">
+                            <option value="Gálvez">
+                            <option value="Pérez">
+                            <option value="Puerto General San Martín">
+                            <option value="Roldán">
+                            <option value="Sunchales">
+                            <option value="San Justo">
+                            <option value="Arroyo Seco">
+                            <option value="Ceres">
+                            <option value="Rufino">
+                            <option value="San Jorge">
+                            <option value="Tostado">
+                            <option value="Carcarañá">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>¿Para cuántas personas sería el servicio? <span class="optional-mark">(opcional)</span></label>
+                        <select name="cantidad_empleados">
+                            <option value="" disabled selected>Seleccione la cantidad...</option>
+                            <option value="1-15">De 1 a 15 personas</option>
+                            <option value="16-50">De 16 a 50 personas</option>
+                            <option value="51-100">De 51 a 100 personas</option>
+                            <option value="100+">Más de 100 personas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label>Principal desafío operativo a resolver <span class="optional-mark">(opcional)</span></label>
+                    <select name="desafio">
+                        <option value="" disabled selected>Seleccione la opción correspondiente...</option>
+                        <option value="1">Necesidad de agua purificada certificada para el personal</option>
+                        <option value="2">Optimización de tiempos muertos (preparación de infusiones)</option>
+                        <option value="3">Abastecimiento continuo de agua térmica (frío/calor)</option>
+                        <option value="4">Reemplazo de proveedor logístico de bidones actual</option>
+                        <option value="5">Otro</option>
+                    </select>
+                </div>
+
+                <div class="captcha-box" id="captcha-box">
+                    <div class="captcha-left" onclick="validateCaptcha()">
+                        <div class="captcha-checkbox" id="captcha-checkbox"></div>
+                        <span class="captcha-text">No soy un robot</span>
+                    </div>
+                    <div class="captcha-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/1200px-RecaptchaLogo.svg.png" alt="reCAPTCHA">
+                        <span>Privacidad - Términos</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn submit-btn" id="submitBtn" style="opacity: 0.5; pointer-events: none;">Solicitar Evaluación Técnica</button>
+            </form>
+        </div>
         </div>
     </section>
 
@@ -542,6 +649,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <section class="section-padding bg-alt">
         <div class="text-center reveal">
+            <span class="pre-title">Catálogo Corporativo</span>
+            <h2 class="section-title">Equipos de pie para empresas</h2>
+            <p style="color: var(--text-muted); max-width: 620px; margin: 0 auto;">Seis configuraciones de piso pensadas para oficinas, áreas comunes y plantas industriales. Todas con agua fría, natural y caliente sin límite de consumo.</p>
+        </div>
+        <div class="cat-grid">
+            <article class="cat-card reveal">
+                <div class="cat-img"><img src="catalogo/ultra.jpg" alt="Dispenser Yakú Ultra" loading="lazy" width="900" height="1250"><span class="cat-tag">Más elegido</span></div>
+                <div class="cat-body">
+                    <h3>Ultra</h3>
+                    <p>Agua ilimitada fría, natural y caliente en un diseño sobrio y resistente. El equipo más elegido por empresas.</p>
+                    <span class="cat-dims">De pie · 99 × 35 × 32 cm</span>
+                </div>
+            </article>
+            <article class="cat-card reveal">
+                <div class="cat-img"><img src="catalogo/ice.jpg" alt="Dispenser Yakú Ice" loading="lazy" width="900" height="1250"><span class="cat-tag">Alto consumo</span></div>
+                <div class="cat-body">
+                    <h3>Ice</h3>
+                    <p>Para instalaciones de alta demanda: 10,9 L de agua fría y 3 L caliente, con bajo consumo energético.</p>
+                    <span class="cat-dims">De pie · 120 × 38 × 43 cm</span>
+                </div>
+            </article>
+            <article class="cat-card reveal">
+                <div class="cat-img"><img src="catalogo/duo.jpg" alt="Dispenser Yakú Duo" loading="lazy" width="900" height="1250"><span class="cat-tag">Con conservadora</span></div>
+                <div class="cat-body">
+                    <h3>Duo</h3>
+                    <p>Incorpora un refrigerador en el módulo inferior, para conservar insumos sin sumar equipamiento adicional.</p>
+                    <span class="cat-dims">De pie · 99 × 35 × 32 cm</span>
+                </div>
+            </article>
+            <article class="cat-card reveal">
+                <div class="cat-img"><img src="catalogo/pure.jpg" alt="Dispenser Yakú Pure" loading="lazy" width="900" height="1250"><span class="cat-tag">Ósmosis 5 etapas</span></div>
+                <div class="cat-body">
+                    <h3>Pure</h3>
+                    <p>Ósmosis inversa en cinco etapas. Indicado para zonas de aguas duras: sin cloro ni sedimentos.</p>
+                    <span class="cat-dims">De pie · 99 × 35 × 32 cm</span>
+                </div>
+            </article>
+            <article class="cat-card reveal">
+                <div class="cat-img"><img src="catalogo/prime.jpg" alt="Dispenser Yakú Prime" loading="lazy" width="900" height="1250"><span class="cat-tag">Pulsadores resguardados</span></div>
+                <div class="cat-body">
+                    <h3>Prime</h3>
+                    <p>Indicadores LED de temperatura y pulsadores resguardados, para mayor seguridad e higiene en zonas de alto tránsito.</p>
+                    <span class="cat-dims">De pie · 99 × 35 × 32 cm</span>
+                </div>
+            </article>
+            <article class="cat-card reveal">
+                <div class="cat-img"><img src="catalogo/premium.jpg" alt="Dispenser Yakú Premium" loading="lazy" width="900" height="1250"><span class="cat-tag">Línea estética</span></div>
+                <div class="cat-body">
+                    <h3>Premium</h3>
+                    <p>Un paso extra en estética corporativa, sin resignar ninguna de las prestaciones técnicas.</p>
+                    <span class="cat-dims">De pie · 99 × 35 × 32 cm</span>
+                </div>
+            </article>
+        </div>
+        <div class="cta-center reveal">
+            <a href="#contacto" class="btn btn-outline">Solicitar cotización</a>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="text-center reveal">
             <span class="pre-title">Infraestructura Tecnológica</span>
             <h2 class="section-title">Equipamiento B2B Adaptable</h2>
             <p style="color: var(--text-muted);">Configuraciones específicas para gerencias, áreas comunes y plantas industriales.</p>
@@ -569,7 +737,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <section class="section-padding">
+    <section class="section-padding bg-alt">
         <div class="text-center reveal">
             <span class="pre-title">Diferencial Competitivo</span>
             <h2 class="section-title">El Estándar de Calidad Yakú</h2>
@@ -606,10 +774,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
+    <section class="section-padding">
+        <div class="text-center reveal">
+            <span class="pre-title">Análisis Operativo</span>
+            <h2 class="section-title">El costo oculto de la logística tradicional</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">La gestión de bidones genera ineficiencias sistemáticas que afectan la productividad diaria de su negocio.</p>
+        </div>
+        <div class="problems-grid">
+            <div class="problem-card reveal">
+                <span class="problem-number">01</span>
+                <h3>Pérdida de Tiempo</h3>
+                <p>Interrupciones constantes para recibir proveedores, recambiar botellones pesados y demoras del personal calentando agua de forma manual.</p>
+            </div>
+            <div class="problem-card reveal">
+                <span class="problem-number">02</span>
+                <h3>Espacio Inmovilizado</h3>
+                <p>Metros cuadrados de alto valor corporativo destinados ineficientemente al almacenamiento de stock de bidones llenos y vacíos.</p>
+            </div>
+            <div class="problem-card reveal">
+                <span class="problem-number">03</span>
+                <h3>Riesgo Sanitario</h3>
+                <p>La manipulación constante de cuellos de botellones y canillas tradicionales en zonas de alto tránsito favorece la proliferación bacteriana.</p>
+            </div>
+            <div class="problem-card reveal">
+                <span class="problem-number">04</span>
+                <h3>Inestabilidad de Costos</h3>
+                <p>Ausencia de previsibilidad financiera ante variaciones abruptas de consumo estacional y eventuales cortes de suministro logístico.</p>
+            </div>
+        </div>
+        <div class="cta-center reveal">
+            <a href="#contacto" class="btn btn-outline">Conocer la alternativa</a>
+        </div>
+    </section>
+
     <section class="section-padding bg-alt">
+        <div class="service-flex">
+            <div class="service-text reveal">
+                <span class="pre-title">Solución Integral</span>
+                <h2 class="section-title">El Modelo Yakú 360</h2>
+                <p>Transformamos un problema logístico en un servicio automatizado. Su área de compras externaliza por completo la gestión del agua.</p>
+                <ul class="service-list">
+                    <li>
+                        <div>
+                            <strong>Abono de Tarifa Plana</strong>
+                            Inversión mensual estrictamente fija, independientemente de los picos de consumo de sus empleados.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Despliegue Técnico Express</strong>
+                            Instalación no invasiva (15 a 20 min) mediante conectores estéticos y canalización milimétrica oculta.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Mantenimiento Preventivo</strong>
+                            Sanitización y control de equipos a medida de cada cliente.
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Recambio Certificado</strong>
+                            Sustitución programada de filtros Fukari (aprobados por ANMAT) garantizando calidad ininterrumpida.
+                        </div>
+                    </li>
+                </ul>
+                <div style="margin-top: 40px;">
+                    <a href="#contacto" class="btn">Solicitar Propuesta Comercial</a>
+                </div>
+            </div>
+            <div class="service-image reveal" style="flex: 1; text-align: center;">
+                 <img src="https://yakuagua.com.ar/wp-content/uploads/2024/04/logo.png" alt="Yakú" style="max-width: 300px; opacity: 0.15;">
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
         <div class="text-center reveal">
             <span class="pre-title">Resolución de Dudas</span>
-            <h2 class="section-title">Preguntas Frecuentes</h3>
+            <h2 class="section-title">Preguntas Frecuentes</h2>
         </div>
         <div class="faq-container reveal">
             <div class="faq-item">
@@ -633,8 +876,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <section id="contacto" class="contact-section">
-        <div class="contact-wrapper">
+    <section class="contact-section">
+        <div class="contact-wrapper contact-wrapper--solo">
             <div class="contact-info reveal">
                 <span class="pre-title">Contacto Comercial</span>
                 <h2 class="section-title">Inicie la actualización de su empresa</h2>
@@ -643,121 +886,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p>✅ Más de 9 años liderando el sector corporativo.</p>
                     <p>✅ Instalación bonificada para nuevos clientes B2B.</p>
                 </div>
-            </div>
-
-            <div class="form-container reveal">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Nombre <span class="required-mark">*</span></label>
-                            <input type="text" name="nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Apellido <span class="required-mark">*</span></label>
-                            <input type="text" name="apellido" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Email Corporativo <span class="required-mark">*</span></label>
-                            <input type="email" name="email" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Teléfono <span class="required-mark">*</span></label>
-                            <input type="tel" name="telefono" placeholder="Ej: 341 1234567" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Empresa <span class="required-mark">*</span></label>
-                            <input type="text" name="empresa" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Cargo Organizacional <span class="optional-mark">(opcional)</span></label>
-                            <input type="text" name="cargo">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group input-with-icon">
-                            <label>Localidad (Provincia de Santa Fe) <span class="required-mark">*</span></label>
-                            <input type="text" name="localidad" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
-                            <datalist id="localidades-sf">
-                                <option value="Rosario">
-                                <option value="Santa Fe (Capital)">
-                                <option value="Rafaela">
-                                <option value="Villa Gobernador Gálvez">
-                                <option value="Venado Tuerto">
-                                <option value="Reconquista">
-                                <option value="Santo Tomé">
-                                <option value="San Lorenzo">
-                                <option value="Esperanza">
-                                <option value="Granadero Baigorria">
-                                <option value="Casilda">
-                                <option value="Cañada de Gómez">
-                                <option value="Capitán Bermúdez">
-                                <option value="Coronda">
-                                <option value="Firmat">
-                                <option value="Funes">
-                                <option value="Gálvez">
-                                <option value="Pérez">
-                                <option value="Puerto General San Martín">
-                                <option value="Roldán">
-                                <option value="Sunchales">
-                                <option value="San Justo">
-                                <option value="Arroyo Seco">
-                                <option value="Ceres">
-                                <option value="Rufino">
-                                <option value="San Jorge">
-                                <option value="Tostado">
-                                <option value="Carcarañá">
-                            </datalist>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>¿Para cuántas personas sería el servicio? <span class="optional-mark">(opcional)</span></label>
-                            <select name="cantidad_empleados">
-                                <option value="" disabled selected>Seleccione la cantidad...</option>
-                                <option value="1-15">De 1 a 15 personas</option>
-                                <option value="16-50">De 16 a 50 personas</option>
-                                <option value="51-100">De 51 a 100 personas</option>
-                                <option value="100+">Más de 100 personas</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 25px;">
-                        <label>Principal desafío operativo a resolver <span class="optional-mark">(opcional)</span></label>
-                        <select name="desafio">
-                            <option value="" disabled selected>Seleccione la opción correspondiente...</option>
-                            <option value="1">Necesidad de agua purificada certificada para el personal</option>
-                            <option value="2">Optimización de tiempos muertos (preparación de infusiones)</option>
-                            <option value="3">Abastecimiento continuo de agua térmica (frío/calor)</option>
-                            <option value="4">Reemplazo de proveedor logístico de bidones actual</option>
-                            <option value="5">Otro</option>
-                        </select>
-                    </div>
-
-                    <div class="captcha-box" id="captcha-box">
-                        <div class="captcha-left" onclick="validateCaptcha()">
-                            <div class="captcha-checkbox" id="captcha-checkbox"></div>
-                            <span class="captcha-text">No soy un robot</span>
-                        </div>
-                        <div class="captcha-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/RecaptchaLogo.svg/1200px-RecaptchaLogo.svg.png" alt="reCAPTCHA">
-                            <span>Privacidad - Términos</span>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn submit-btn" id="submitBtn" style="opacity: 0.5; pointer-events: none;">Solicitar Evaluación Técnica</button>
-                </form>
+                <a href="#contacto" class="btn">Solicitar evaluación técnica</a>
             </div>
         </div>
     </section>
