@@ -223,7 +223,7 @@
             gap: 80px;
             max-width: 1200px;
             margin: 0 auto;
-            align-items: center;
+            align-items: start;
         }
 
         .contact-info .pre-title { color: var(--accent); }
@@ -377,7 +377,9 @@
         }
         .hero .hero-container { align-items: flex-start; }
         .hero-form { flex: 0 0 470px; max-width: 470px; padding: 36px 32px; scroll-margin-top: 110px; }
-        .hero-form .form-row { align-items: flex-end; }
+        /* Etiquetas de distinto alto (ej. "Cargo Organizacional") no deben
+           desalinear los inputs de la fila */
+        .form-row { align-items: flex-end; }
         .hero-form.form-container { box-shadow: 0 24px 50px -18px rgba(10, 37, 64, 0.22); border: 1px solid var(--border-light); }
         .hero-form .form-row { margin-bottom: 18px; }
         .hero-form .form-group { margin-bottom: 0; }
@@ -411,9 +413,7 @@
         .cta-center { text-align: center; margin-top: 55px; }
 
         /* ===== CIERRE SIN FORMULARIO ===== */
-        .contact-wrapper--solo { grid-template-columns: 1fr; max-width: 760px; text-align: center; }
-        .contact-wrapper--solo .trust-badges { display: inline-block; text-align: left; margin-bottom: 40px; }
-        .contact-wrapper--solo .btn { display: inline-block; }
+        .contact-info { position: sticky; top: 130px; }
 
         @media (max-width: 1100px) {
             .cat-grid { grid-template-columns: repeat(2, 1fr); }
@@ -452,7 +452,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>Soporte técnico propio</span>
                 </div>
             </div>
-            <div class="form-container hero-form reveal" id="contacto">
+            <div class="form-container hero-form reveal">
             <form>
                 <div class="form-row">
                     <div class="form-group">
@@ -494,36 +494,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="form-group input-with-icon">
                         <label>Localidad (Provincia de Santa Fe) <span class="required-mark">*</span></label>
                         <input type="text" name="localidad" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
-                        <datalist id="localidades-sf">
-                            <option value="Rosario">
-                            <option value="Santa Fe (Capital)">
-                            <option value="Rafaela">
-                            <option value="Villa Gobernador Gálvez">
-                            <option value="Venado Tuerto">
-                            <option value="Reconquista">
-                            <option value="Santo Tomé">
-                            <option value="San Lorenzo">
-                            <option value="Esperanza">
-                            <option value="Granadero Baigorria">
-                            <option value="Casilda">
-                            <option value="Cañada de Gómez">
-                            <option value="Capitán Bermúdez">
-                            <option value="Coronda">
-                            <option value="Firmat">
-                            <option value="Funes">
-                            <option value="Gálvez">
-                            <option value="Pérez">
-                            <option value="Puerto General San Martín">
-                            <option value="Roldán">
-                            <option value="Sunchales">
-                            <option value="San Justo">
-                            <option value="Arroyo Seco">
-                            <option value="Ceres">
-                            <option value="Rufino">
-                            <option value="San Jorge">
-                            <option value="Tostado">
-                            <option value="Carcarañá">
-                        </datalist>
                     </div>
                 </div>
 
@@ -554,19 +524,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <!-- Trampa anti-bot: invisible para personas, los bots la completan -->
                 <div class="hp-field" aria-hidden="true">
-                    <label for="hp-website">No completar este campo</label>
-                    <input type="text" name="website" id="hp-website" tabindex="-1" autocomplete="off">
+                    <label>No completar este campo</label>
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
                 </div>
 
-                <div class="captcha-box" id="captcha-box">
-                    <div class="captcha-left" id="captcha-toggle" role="checkbox" aria-checked="false" tabindex="0" onclick="validateCaptcha()">
-                        <div class="captcha-checkbox" id="captcha-checkbox"></div>
+                <div class="captcha-box">
+                    <div class="captcha-left" role="checkbox" aria-checked="false" tabindex="0">
+                        <div class="captcha-checkbox"></div>
                         <span class="captcha-text">Confirmo que no soy un robot</span>
                     </div>
                     <span class="captcha-note">Verificación<br>de seguridad</span>
                 </div>
 
-                <button type="submit" class="btn submit-btn" id="submitBtn" style="opacity: 0.5; pointer-events: none;">Solicitar Evaluación Técnica</button>
+                <button type="submit" class="btn submit-btn" style="opacity: 0.5; pointer-events: none;">Solicitar Evaluación Técnica</button>
             </form>
         </div>
         </div>
@@ -889,8 +859,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
-    <section class="contact-section">
-        <div class="contact-wrapper contact-wrapper--solo">
+    <section id="contacto" class="contact-section">
+        <div class="contact-wrapper">
             <div class="contact-info reveal">
                 <span class="pre-title">Contacto Comercial</span>
                 <h2 class="section-title">Inicie la actualización de su empresa</h2>
@@ -899,10 +869,129 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p>✅ Más de 9 años liderando el sector corporativo.</p>
                     <p>✅ Instalación bonificada para nuevos clientes B2B.</p>
                 </div>
-                <a href="#contacto" class="btn">Solicitar evaluación técnica</a>
+            </div>
+
+            <div class="form-container reveal">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre <span class="required-mark">*</span></label>
+                            <input type="text" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Apellido <span class="required-mark">*</span></label>
+                            <input type="text" name="apellido" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email Corporativo <span class="required-mark">*</span></label>
+                            <input type="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Teléfono <span class="required-mark">*</span></label>
+                            <input type="tel" name="telefono" placeholder="Ej: 341 1234567" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Empresa <span class="required-mark">*</span></label>
+                            <input type="text" name="empresa" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cargo Organizacional <span class="optional-mark">(opcional)</span></label>
+                            <input type="text" name="cargo">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group input-with-icon">
+                            <label>Localidad (Provincia de Santa Fe) <span class="required-mark">*</span></label>
+                            <input type="text" name="localidad" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>¿Para cuántas personas sería el servicio? <span class="optional-mark">(opcional)</span></label>
+                            <select name="cantidad_empleados">
+                                <option value="" disabled selected>Seleccione la cantidad...</option>
+                                <option value="1-15">De 1 a 15 personas</option>
+                                <option value="16-50">De 16 a 50 personas</option>
+                                <option value="51-100">De 51 a 100 personas</option>
+                                <option value="100+">Más de 100 personas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label>Principal desafío operativo a resolver <span class="optional-mark">(opcional)</span></label>
+                        <select name="desafio">
+                            <option value="" disabled selected>Seleccione la opción correspondiente...</option>
+                            <option value="1">Necesidad de agua purificada certificada para el personal</option>
+                            <option value="2">Optimización de tiempos muertos (preparación de infusiones)</option>
+                            <option value="3">Abastecimiento continuo de agua térmica (frío/calor)</option>
+                            <option value="4">Reemplazo de proveedor logístico de bidones actual</option>
+                            <option value="5">Otro</option>
+                        </select>
+                    </div>
+
+                    <!-- Trampa anti-bot: invisible para personas, los bots la completan -->
+                    <div class="hp-field" aria-hidden="true">
+                        <label>No completar este campo</label>
+                        <input type="text" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="captcha-box">
+                        <div class="captcha-left" role="checkbox" aria-checked="false" tabindex="0">
+                            <div class="captcha-checkbox"></div>
+                            <span class="captcha-text">Confirmo que no soy un robot</span>
+                        </div>
+                        <span class="captcha-note">Verificación<br>de seguridad</span>
+                    </div>
+
+                    <button type="submit" class="btn submit-btn" style="opacity: 0.5; pointer-events: none;">Solicitar Evaluación Técnica</button>
+                </form>
             </div>
         </div>
     </section>
+
+    <!-- Compartido por los dos formularios -->
+    <datalist id="localidades-sf">
+    <option value="Rosario">
+    <option value="Santa Fe (Capital)">
+    <option value="Rafaela">
+    <option value="Villa Gobernador Gálvez">
+    <option value="Venado Tuerto">
+    <option value="Reconquista">
+    <option value="Santo Tomé">
+    <option value="San Lorenzo">
+    <option value="Esperanza">
+    <option value="Granadero Baigorria">
+    <option value="Casilda">
+    <option value="Cañada de Gómez">
+    <option value="Capitán Bermúdez">
+    <option value="Coronda">
+    <option value="Firmat">
+    <option value="Funes">
+    <option value="Gálvez">
+    <option value="Pérez">
+    <option value="Puerto General San Martín">
+    <option value="Roldán">
+    <option value="Sunchales">
+    <option value="San Justo">
+    <option value="Arroyo Seco">
+    <option value="Ceres">
+    <option value="Rufino">
+    <option value="San Jorge">
+    <option value="Tostado">
+    <option value="Carcarañá">
+    </datalist>
 
     <footer>
         <p>&copy; 2026 Yakú. Servicios Corporativos de Purificación de Agua.</p>
@@ -913,37 +1002,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Tres señales combinadas: interacción explícita, honeypot y tiempo de
         // llenado. No reemplaza a una validación en el servidor, pero frena a
         // los bots que completan formularios de forma automática.
+        // Hay dos formularios en la página (hero y cierre): todo se resuelve
+        // por formulario, sin IDs globales.
         const formOpenedAt = Date.now();
         const TIEMPO_MINIMO_MS = 4000; // una persona no completa 9 campos en menos
 
-        let captchaValid = false;
-        function validateCaptcha() {
-            if(captchaValid) return;
-            const checkbox = document.getElementById('captcha-checkbox');
-            const toggle = document.getElementById('captcha-toggle');
-            const submitBtn = document.getElementById('submitBtn');
+        function validateCaptcha(toggle) {
+            const form = toggle.closest('form');
+            if (form.dataset.captcha === 'ok') return;
 
+            const checkbox = toggle.querySelector('.captcha-checkbox');
+            const submitBtn = form.querySelector('.submit-btn');
             checkbox.classList.add('loading');
 
             setTimeout(() => {
                 checkbox.classList.remove('loading');
                 checkbox.classList.add('checked');
                 toggle.setAttribute('aria-checked', 'true');
-                captchaValid = true;
+                form.dataset.captcha = 'ok';
                 submitBtn.style.opacity = '1';
                 submitBtn.style.pointerEvents = 'auto';
             }, 500);
         }
 
-        // Accesible por teclado: la casilla es un role="checkbox"
-        document.getElementById('captcha-toggle').addEventListener('keydown', (e) => {
-            if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); validateCaptcha(); }
+        document.querySelectorAll('.captcha-left').forEach((toggle) => {
+            toggle.addEventListener('click', () => validateCaptcha(toggle));
+            // Accesible por teclado: la casilla es un role="checkbox"
+            toggle.addEventListener('keydown', (e) => {
+                if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); validateCaptcha(toggle); }
+            });
         });
 
         // Envío del formulario a la API del CRM
-        document.querySelector('.form-container form').addEventListener('submit', async function(e) {
+        document.querySelectorAll('.form-container form').forEach((formEl) => formEl.addEventListener('submit', async function(e) {
             e.preventDefault();
-            if (!captchaValid) return;
+            if (this.dataset.captcha !== 'ok') return;
 
             // Honeypot: si viene completo, es un bot. Se corta sin avisar por qué.
             if (this.website && this.website.value.trim() !== '') return;
@@ -954,7 +1047,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 return;
             }
 
-            const btn = document.getElementById('submitBtn');
+            const btn = this.querySelector('.submit-btn');
             const textoOriginal = btn.textContent;
             btn.disabled = true;
             btn.style.opacity = '0.5';
@@ -988,7 +1081,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 btn.style.pointerEvents = 'auto';
                 btn.textContent = textoOriginal;
             }
-        });
+        }));
 
         // 2. Animación de Esferas de Cristal (Canvas)
         const canvas = document.getElementById('glassCanvas');
