@@ -358,7 +358,7 @@
         }
 
         /* ===== HERO CON FORMULARIO ===== */
-        .hero-text { flex: 1; max-width: 620px; }
+        .hero-text { flex: 1; max-width: 560px; }
         .hero-text h1 {
             font-size: clamp(2.8rem, 5.2vw, 4.4rem);
             line-height: 1.02;
@@ -376,7 +376,16 @@
             padding: 8px 14px; border-radius: 999px;
         }
         .hero .hero-container { align-items: flex-start; }
-        .hero-form { flex: 0 0 470px; max-width: 470px; padding: 36px 32px; scroll-margin-top: 110px; }
+        .hero-form { flex: 0 0 540px; max-width: 540px; padding: 32px 30px; scroll-margin-top: 110px; }
+        /* Ritmo mas compacto que el del cierre: el hero no debe pedir scroll */
+        .hero-form label { font-size: 0.72rem; margin-bottom: 5px; letter-spacing: 0.4px; }
+        .hero-form input, .hero-form select { padding: 10px 12px; font-size: 0.93rem; }
+        .hero-form .captcha-box { padding: 9px 13px; margin-bottom: 18px; }
+        .hero-form .captcha-checkbox { width: 22px; height: 22px; }
+        .hero-form .captcha-checkbox.checked::after { font-size: 18px; }
+        .hero-form .captcha-text { font-size: 0.82rem; }
+        .hero-form .submit-btn { padding: 15px; font-size: 0.98rem; }
+        .hero-form .form-group--full { margin-bottom: 16px; }
         /* Etiquetas de distinto alto (ej. "Cargo Organizacional") no deben
            desalinear los inputs de la fila. Solo en desktop: en mobile la fila
            es columna y flex-end alinearia a la derecha encogiendo los campos. */
@@ -384,7 +393,7 @@
             .form-row { align-items: flex-end; }
         }
         .hero-form.form-container { box-shadow: 0 24px 50px -18px rgba(10, 37, 64, 0.22); border: 1px solid var(--border-light); }
-        .hero-form .form-row { margin-bottom: 18px; }
+        .hero-form .form-row { margin-bottom: 14px; gap: 16px; }
         .hero-form .form-group { margin-bottom: 0; }
 
         /* ===== CATÁLOGO DE EQUIPOS ===== */
@@ -417,6 +426,7 @@
 
         /* ===== CIERRE SIN FORMULARIO ===== */
         .contact-info { position: sticky; top: 130px; }
+        .form-group--full { margin-bottom: 25px; }
 
         @media (max-width: 1100px) {
             .cat-grid { grid-template-columns: repeat(2, 1fr); }
@@ -476,9 +486,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <label>Email Corporativo <span class="required-mark">*</span></label>
                         <input type="email" name="email" required>
                     </div>
-                </div>
-
-                <div class="form-row">
                     <div class="form-group">
                         <label>Teléfono <span class="required-mark">*</span></label>
                         <input type="tel" name="telefono" placeholder="Ej: 341 1234567" required>
@@ -498,14 +505,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="form-row">
                     <div class="form-group input-with-icon">
-                        <label>Localidad (Provincia de Santa Fe) <span class="required-mark">*</span></label>
+                        <label>Localidad (Santa Fe) <span class="required-mark">*</span></label>
                         <input type="text" name="localidad" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
                     </div>
-                </div>
-
-                <div class="form-row">
                     <div class="form-group">
-                        <label>¿Para cuántas personas sería el servicio? <span class="optional-mark">(opcional)</span></label>
+                        <label>Cantidad de personas <span class="optional-mark">(opcional)</span></label>
                         <select name="cantidad_empleados">
                             <option value="" disabled selected>Seleccione la cantidad...</option>
                             <option value="1-15">De 1 a 15 personas</option>
@@ -516,7 +520,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
 
-                <div class="form-group" style="margin-bottom: 25px;">
+                <div class="form-group form-group--full">
                     <label>Principal desafío operativo a resolver <span class="optional-mark">(opcional)</span></label>
                     <select name="desafio">
                         <option value="" disabled selected>Seleccione la opción correspondiente...</option>
@@ -895,9 +899,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <label>Email Corporativo <span class="required-mark">*</span></label>
                             <input type="email" name="email" required>
                         </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group">
                             <label>Teléfono <span class="required-mark">*</span></label>
                             <input type="tel" name="telefono" placeholder="Ej: 341 1234567" required>
@@ -917,14 +918,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <div class="form-row">
                         <div class="form-group input-with-icon">
-                            <label>Localidad (Provincia de Santa Fe) <span class="required-mark">*</span></label>
+                            <label>Localidad (Santa Fe) <span class="required-mark">*</span></label>
                             <input type="text" name="localidad" list="localidades-sf" placeholder="Ej: Rosario, Santa Fe..." required autocomplete="off">
                         </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group">
-                            <label>¿Para cuántas personas sería el servicio? <span class="optional-mark">(opcional)</span></label>
+                            <label>Cantidad de personas <span class="optional-mark">(opcional)</span></label>
                             <select name="cantidad_empleados">
                                 <option value="" disabled selected>Seleccione la cantidad...</option>
                                 <option value="1-15">De 1 a 15 personas</option>
@@ -935,7 +933,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 25px;">
+                    <div class="form-group form-group--full">
                         <label>Principal desafío operativo a resolver <span class="optional-mark">(opcional)</span></label>
                         <select name="desafio">
                             <option value="" disabled selected>Seleccione la opción correspondiente...</option>
